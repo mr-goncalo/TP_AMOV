@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuPerfil"
+        android:title="@string/menu_perfil"
+        app:showAsAction="never"
+        android:onClick="onPerfil"/>
+    <item
+        android:id="@+id/menuLinguagem"
+        android:title="@string/menu_linguagem"
+        app:showAsAction="never"
+        android:onClick="onLinguagem"/>
+
+    <item
+        android:id="@+id/menuSobre"
+        android:title="@string/menu_sobre"
+        app:showAsAction="never"
+        android:onClick="onSobre"/>
+</menu>
