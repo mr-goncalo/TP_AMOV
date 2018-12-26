@@ -41,7 +41,7 @@
     <string name="minutos">(in minutes)</string>
     <string name="com_temporizador">With Timer</string>
     <string name="sem_temporizador">Without Timer</string>
-     <string name="capturar_imagem">Capture Image</string>
+    <string name="capturar_imagem">Capture Image</string>
     <string name="guardar_perfil">Save Profile</string>
     <string name="escolher_perfil">Choose Profile</string>
     <string name="sobre1">Pratical Work Android 2017/2018 - Chess Game</string>
