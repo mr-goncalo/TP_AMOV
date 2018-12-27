@@ -1,8 +1,8 @@
 package com.example.eu.reversisec.Perfil;
-
 import android.app.Application;
 
 import com.example.eu.reversisec.Historico.NovoHistorico;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,13 +11,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-/**
- * Created by joaopedrojaneiro on 01/12/17.
- */
 
 public class DadosGuardados extends Application
 {
-    /*
+
     public novoPerfil savePerfil;
     ArrayList<novoPerfil> lstPerfis;
     private static DadosGuardados objPerfil;
@@ -51,8 +48,8 @@ public class DadosGuardados extends Application
 
     public static void addPerfil(novoPerfil np)
     {
-            objPerfil.lstPerfis.add(np);
-            gravarPerfil();
+        objPerfil.lstPerfis.add(np);
+        gravarPerfil();
     }
 
     public static void gravarPerfil()
@@ -156,7 +153,7 @@ public class DadosGuardados extends Application
         if (objHistorico.lstJogada == null)
             objHistorico.lstJogada = new ArrayList<>();
     }
-*/
+
 }
 
 

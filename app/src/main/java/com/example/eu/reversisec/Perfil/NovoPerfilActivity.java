@@ -25,7 +25,7 @@ public class NovoPerfilActivity extends Activity {
         if(foto!=null)
             perfil = new novoPerfil(nome, foto);
 
-      //  DadosGuardados.addPerfil(perfil);
+        DadosGuardados.addPerfil(perfil);
         finish();
     }
 }

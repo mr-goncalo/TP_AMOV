@@ -50,14 +50,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void onUmJogador(View v)
     {
-        /*
-        Intent intent = new Intent(this,JogarActivity.class);
+
+        Intent intent = new Intent(this,activity_modo_singleplayer.class);
         boolean pc = true;
         String tempo="0";
-        intent.putExtra("computador", pc);
+     /*   intent.putExtra("computador", pc);
         intent.putExtra("tempo", tempo);
         intent.putExtra("tempoextra", "0");
-        startActivity(intent); */
+       */ startActivity(intent);
     }
 
     public void onDoisJogadores(View v){
@@ -84,15 +84,18 @@ public class MainActivity extends AppCompatActivity {
     {/*
         Intent intent = new Intent(this,SobreActivity.class);
         startActivity(intent); */
+        Intent intent = new Intent(this,PerfilActivity.class);
+        startActivity(intent);
     }
 
     public void onPerfil(MenuItem item)
-    {/*
+    {
         Intent intent = new Intent(this,PerfilActivity.class);
-        startActivity(intent); */
+        startActivity(intent);
     }
     public void onLinguagem(MenuItem item)
     {
-
+        Intent intent = new Intent(this,PerfilActivity.class);
+        startActivity(intent);
     }
 }

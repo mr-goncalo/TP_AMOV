@@ -4,6 +4,7 @@
 
     <uses-sdk android:targetSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -25,6 +26,12 @@
         </activity>
         <activity android:name=".Views.ConsultaHistoricoActivity" />
         <activity android:name=".Views.activity_modo_singleplayer"></activity>
+        <activity android:name=".Views.PerfilActivity" />
+        <activity android:name=".Perfil.EscolherPerfilActivity" />
+        <activity android:name=".Perfil.NovoPerfilActivity" />
+        <activity android:name=".Perfil.CamaraActivity" />
+
+
     </application>
 
 </manifest>

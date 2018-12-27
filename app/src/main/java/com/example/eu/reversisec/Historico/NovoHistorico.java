@@ -1,13 +1,11 @@
 package com.example.eu.reversisec.Historico;
 
 
+import com.example.eu.reversisec.Perfil.DadosGuardados;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-
-/**
- * Created by joaopedrojaneiro on 31/12/17.
- */
 
 public class NovoHistorico implements Serializable
 {
@@ -30,7 +28,7 @@ public class NovoHistorico implements Serializable
     {
         this.vencedor=vencedor;
         dataCriacao = new Date();
-     //   DadosGuardados.addHistorico(this);
+         DadosGuardados.addHistorico(this);
     }
 
     public Integer getPos1(int n)
