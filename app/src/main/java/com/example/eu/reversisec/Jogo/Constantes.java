@@ -1,5 +1,7 @@
 package com.example.eu.reversisec.Jogo;
 
+import com.example.eu.reversisec.R;
+
 public class Constantes {
     public static final int LEFT = 0;
     public static final int UPPER_LEFT = 1;

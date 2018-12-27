@@ -47,7 +47,7 @@ public class Bloco {
         this.blogoImg = BlocoImg;
     }
 
-    public void playHere(int img){
+    public void jogar(int img){
         this.blogoImg = img;
 
         for (int d: Direcoes){
@@ -90,7 +90,7 @@ public class Bloco {
         return PosValida;
     }
 
-    public void setValidPosValida(boolean PosValida) {
+    public void setPosValida(boolean PosValida) {
         this.PosValida = PosValida;
     }
 

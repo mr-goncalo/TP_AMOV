@@ -11,15 +11,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.R;
 
 public class MainActivity extends AppCompatActivity {
 
 
+    LogicaJogo jogo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        jogo = (LogicaJogo) getApplication();
+        
         Button btn1 =  findViewById(R.id.btnUmJogador);
         Button btn2 =  findViewById(R.id.btnMultiplayer);
         Button btn3 = findViewById(R.id.btnJogarEmRede);
