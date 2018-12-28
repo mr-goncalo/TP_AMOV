@@ -7,7 +7,7 @@ public class MeuJogador extends Jogador {
     }
 
     @Override
-    public void setPos(int pos) {
-
+    public void setPos(int posicao) {
+        pos = posicao;
     }
 }

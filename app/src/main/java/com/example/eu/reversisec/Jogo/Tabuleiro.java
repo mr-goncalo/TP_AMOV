@@ -48,10 +48,10 @@ public class Tabuleiro {
                     setBlocosAdj(this.blocos.get(j));
             }
 
-            blocos.get(8*3+3).setBlogoImg(R.drawable.branca);
-            blocos.get(8*4+4).setBlogoImg(R.drawable.branca);
-            blocos.get(8*3+3).setBlogoImg(R.drawable.preta);
-            blocos.get(8*4+4).setBlogoImg(R.drawable.preta);
+            blocos.get(27).setBlogoImg(R.drawable.branca);
+            blocos.get(36).setBlogoImg(R.drawable.branca);
+            blocos.get(28).setBlogoImg(R.drawable.preta);
+            blocos.get(35).setBlogoImg(R.drawable.preta);
     }
 
     public ArrayList<Bloco> getBlocos(){
