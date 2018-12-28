@@ -25,7 +25,7 @@ public class Bloco {
 
         PosValida = false;
 
-        this.blogoImg = Constantes.BLOCO;
+        this.blogoImg = Constantes.FUNDO;
         this.PosAdjacentes = new HashMap<>();
         Direcoes = new ArrayList<>();
     }
@@ -39,7 +39,7 @@ public class Bloco {
     public void setPosY(int posY){this.posY = posY;}
 
     public int getBlogoImg(){
-        if(PosValida) return R.drawable.posicao_valida;
+        if(PosValida) return Constantes.VALIDA;
 
         return blogoImg;
     }
@@ -65,8 +65,8 @@ public class Bloco {
     }
 
     public void vira(){
-        if(blogoImg == R.drawable.preta) blogoImg = R.drawable.branca; else
-        if(blogoImg == R.drawable.branca) blogoImg = R.drawable.preta;
+        if(blogoImg == Constantes.PRETA) blogoImg = Constantes.BRANCA; else
+        if(blogoImg == Constantes.BRANCA) blogoImg = Constantes.BRANCA;
 
     }
 

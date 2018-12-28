@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.GridView;
 
+import com.example.eu.reversisec.Jogo.Constantes;
 import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.Jogo.Adpters.SPAdapter;
 import com.example.eu.reversisec.Jogo.MeuJogador;
@@ -26,8 +27,8 @@ public class activity_modo_singleplayer extends Activity {
         tabuleiroV.setEnabled(false);
         spAdapter = new SPAdapter(this, tabuleiroV, jogo);
         tabuleiroV.setAdapter(spAdapter);
-        jogo.setJ1(new MeuJogador(jogo, R.drawable.preta));
-        jogo.setJ2(new MeuJogador(jogo, R.drawable.branca));
+        jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA));
+        jogo.setJ2(new MeuJogador(jogo, Constantes.BRANCA));
 
         jogo.inicio();
     }
