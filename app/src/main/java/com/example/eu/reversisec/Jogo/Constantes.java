@@ -2,15 +2,18 @@ package com.example.eu.reversisec.Jogo;
 
 import com.example.eu.reversisec.R;
 
-public class Constantes {
-    public static final int LEFT = 0;
-    public static final int UPPER_LEFT = 1;
-    public static final int UPPPER = 2;
-    public static final int UPPER_RIGHT = 3;
-    public static final int RIGHT = 4;
-    public static final int BOTTOM_RIGHT = 5;
-    public static final int BOTTOM = 6;
-    public static final int BOTTOM_LEFT = 7;
+public interface Constantes {
+    int UPPER_LEFT = 1;
+    int UPPER = 2;
+    int UPPER_RIGHT = 3;
+    int LEFT = 0;
+    int RIGHT = 4;
+    int BOTTOM_RIGHT = 5;
+    int BOTTOM = 6;
+    int BOTTOM_LEFT = 7;
 
-    public static final int BLOCO = R.drawable.fundo_bloco;
+    int FUNDO = R.drawable.fundov2;
+    int BRANCA = R.drawable.brancav2;
+    int PRETA = R.drawable.pretav2;
+    int VALIDA = R.drawable.vermelhav3;
 }

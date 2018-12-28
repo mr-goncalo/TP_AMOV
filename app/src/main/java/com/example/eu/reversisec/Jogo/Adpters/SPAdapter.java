@@ -54,7 +54,7 @@ public class SPAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                if(!jogo.getTab().getBlocos().get(pos).isPosValida()){
-                   Log.d("ReverISEC", "onClick: Posição Inválida");
+                   Log.d("ReversISEC", "onClick: Posição Inválida");
                    return;
                }
                jogador.setPos(pos);

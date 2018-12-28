@@ -39,7 +39,7 @@ public class LogicaJogo extends Application {
         else
             enimigo = j1.getImg();
 
-        if (blocoAtual == null ||blocoAtual.getBlogoImg() == R.drawable.fundo_bloco || blocoAtual.getBlogoImg() == R.drawable.posicao_valida ||
+        if (blocoAtual == null ||blocoAtual.getBlogoImg() == Constantes.FUNDO || blocoAtual.getBlogoImg() == Constantes.VALIDA ||
             blocoAtual.getBlogoImg()==jAtual.getImg() || bl.getBlogoImg() == enimigo || bl.getBlogoImg() == jAtual.getImg()){
             return;
         }
@@ -64,7 +64,7 @@ public class LogicaJogo extends Application {
             HashMap<Integer, Bloco> blocoAdj = bl.getPosAdjacentes();
             validaDirecao(bl, Constantes.LEFT);
             validaDirecao(bl, Constantes.UPPER_LEFT);
-            validaDirecao(bl, Constantes.UPPPER);
+            validaDirecao(bl, Constantes.UPPER);
             validaDirecao(bl, Constantes.UPPER_RIGHT);
             validaDirecao(bl, Constantes.RIGHT);
             validaDirecao(bl, Constantes.BOTTOM_RIGHT);

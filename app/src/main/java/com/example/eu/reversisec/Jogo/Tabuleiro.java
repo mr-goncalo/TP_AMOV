@@ -48,10 +48,10 @@ public class Tabuleiro {
                     setBlocosAdj(this.blocos.get(j));
             }
 
-            blocos.get(27).setBlogoImg(R.drawable.branca);
-            blocos.get(36).setBlogoImg(R.drawable.branca);
-            blocos.get(28).setBlogoImg(R.drawable.preta);
-            blocos.get(35).setBlogoImg(R.drawable.preta);
+            blocos.get(27).setBlogoImg(R.drawable.brancav2);
+            blocos.get(36).setBlogoImg(R.drawable.brancav2);
+            blocos.get(28).setBlogoImg(R.drawable.pretav2);
+            blocos.get(35).setBlogoImg(R.drawable.pretav2);
     }
 
     public ArrayList<Bloco> getBlocos(){
@@ -71,14 +71,14 @@ public class Tabuleiro {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 1), Constantes.RIGHT);
                 } else if (bloco.getPosY() == 7) {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 7), Constantes.UPPER_RIGHT);
-                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPPER);
+                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPER);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 1), Constantes.RIGHT);
                 } else {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 9), Constantes.BOTTOM_RIGHT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 8), Constantes.BOTTOM);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 1), Constantes.RIGHT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 7), Constantes.UPPER_RIGHT);
-                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPPER);
+                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPER);
 
                 }
                 break;
@@ -91,12 +91,12 @@ public class Tabuleiro {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 1), Constantes.LEFT);
                 } else if (bloco.getPosY() == 7) {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 9), Constantes.UPPER_LEFT);
-                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPPER);
+                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPER);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 1), Constantes.LEFT);
                 } else {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 9), Constantes.UPPER_LEFT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 1), Constantes.LEFT);
-                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPPER);
+                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPER);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 7), Constantes.BOTTOM_LEFT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 8), Constantes.BOTTOM);
 
@@ -113,7 +113,7 @@ public class Tabuleiro {
                 } else if (bloco.getPosY() == 7) {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 9), Constantes.UPPER_LEFT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 7), Constantes.UPPER_RIGHT);
-                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPPER);
+                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPER);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 1), Constantes.LEFT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 1), Constantes.RIGHT);
                 } else {
@@ -123,7 +123,7 @@ public class Tabuleiro {
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 7), Constantes.UPPER_RIGHT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 1), Constantes.LEFT);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 1), Constantes.RIGHT);
-                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPPER);
+                    bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() - 8), Constantes.UPPER);
                     bloco.addPosAdjacentes(this.blocos.get(bloco.getPosicao() + 8), Constantes.BOTTOM);
 
                 }
