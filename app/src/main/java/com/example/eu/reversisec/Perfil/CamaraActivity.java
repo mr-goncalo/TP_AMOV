@@ -32,6 +32,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.R;
 
 import java.io.File;
@@ -203,7 +204,9 @@ public class CamaraActivity extends Activity {
                     {
                         output = new FileOutputStream(file);
                         output.write(bytes);
-                        PerfilActual.fotoJogTemp = String.valueOf(file);
+                        LogicaJogo lJ = (LogicaJogo) getApplication();
+                        lJ.getUtilizador1().setImgFile(String.valueOf(file));
+
                     }
                     finally
                     {

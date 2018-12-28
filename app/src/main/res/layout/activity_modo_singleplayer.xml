@@ -1,28 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.activity_modo_singleplayer">
+    tools:context=".Views.activity_modo_singleplayer" android:orientation="vertical">
 
-    <GridView
-        android:id="@+id/tabuleiro"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="360dp"
-        android:maxWidth="360dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:numColumns="auto_fit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="10dp"
-        android:background="#4e342e"
-        />
+        android:layout_weight="1"
+        android:orientation="horizontal" android:layout_marginTop="1dp">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/ivFotoJogador1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="2dp"
+              />
+        <ImageView
+            android:id="@+id/ivFotoJogador2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="horizontal" android:layout_margin="3dp">
+        <TextView
+            android:layout_margin="1dp"
+            android:id="@+id/tvNomeJogador1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:textStyle="bold" />
+        <TextView
+            android:layout_margin="1dp"
+            android:id="@+id/tvNomeJogador2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textEnd"
+            android:layout_marginRight="3dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+        <GridView
+        android:id="@+id/tabuleiro"
+        android:layout_width="match_parent"
+         android:maxHeight="360dp"
+        android:maxWidth="360dp"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:stretchMode="columnWidth"
+         android:numColumns="auto_fit"
+        android:padding="1dp"
+         android:gravity="center"
+         />
+
+</LinearLayout>

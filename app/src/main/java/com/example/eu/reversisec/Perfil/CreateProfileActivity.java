@@ -9,7 +9,9 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,20 +22,20 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.lang.reflect.Method;
 
-import game.Constant;
-import game.GameData;
-import game.player.Human;
+import com.example.eu.reversisec.Jogo.LogicaJogo;
+import com.example.eu.reversisec.R;
+import com.example.eu.reversisec.Views.MainActivity;
 
-
-public class CreateProfileActivity extends AppCompatActivity implements Constant {
+public class CreateProfileActivity extends AppCompatActivity  {
     ImageButton imageButton;
     EditText editTextName;
     Button createProfileButton;
     private static final int CAMERA_REQUEST = 1888;
     Bitmap profilePhoto = null;
     Intent cameraIntent;
-    GameData gameData;
+    LogicaJogo userData;
 
     SharedPreferences prefs;
     String profileImgKey = "myPhoto";
@@ -43,11 +45,11 @@ public class CreateProfileActivity extends AppCompatActivity implements Constant
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_profile);
-        gameData = (GameData) getApplication();
+        userData = (LogicaJogo) getApplication();
         imageButton = findViewById(R.id.imgB_profile_pic);
         editTextName = findViewById(R.id.ed_profile_name);
         createProfileButton = findViewById(R.id.bt_create_profile);
-        prefs = this.getSharedPreferences("com.example.adriel.mychess", Context.MODE_PRIVATE);
+        prefs = this.getSharedPreferences("com.example.eu.reversisec", Context.MODE_PRIVATE);
         String myPhoto = "noPhoto";
         String myName = "noName";
         String profileImg = prefs.getString(profileImgKey, myPhoto);
@@ -55,64 +57,66 @@ public class CreateProfileActivity extends AppCompatActivity implements Constant
 
         if (!profileImg.equalsIgnoreCase("noPhoto") && !profileName.equalsIgnoreCase("noName")) {
 
-            File imgFile = new File(profileImg);
-            profilePhoto = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            userData.getUtilizador1().setNome(profileName);
+            userData.getUtilizador1().setImgFile(profileImg);
 
-            gameData.setProfilePic(profilePhoto);
-
-            gameData.setPlayer1(new Human(profileName, COLOR_BLACK, BOTTOM_SIDE));
-
-            gameData.readFile();
-            Intent startMainMenu = new Intent(this, MainMenuActivity.class);
+            Intent startMainMenu = new Intent(this, MainActivity.class);
             startMainMenu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
             startActivity(startMainMenu);
 
         }
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
-            }
-        });
 
         createProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                GameData gameData = (GameData) getApplicationContext();
+
                 String profileName = editTextName.getText().toString();
-                if (profilePhoto != null) {
-                    // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
-                    Uri tempUri = getImageUri(getApplicationContext(), profilePhoto);
 
-                    // CALL THIS METHOD TO GET THE ACTUAL PATH
-                    File finalFile = new File(getRealPathFromURI(tempUri));
-                    String photoPath = finalFile.getAbsolutePath();
-
-                    // And Save it to SharedPrefrence.
-                    prefs.edit().putString(profileImgKey, photoPath).apply();
-                    gameData.setProfilePic(profilePhoto);
-                }
                 if (profileName.equalsIgnoreCase("")) {
 
                     Toast.makeText(getApplicationContext(), "introduz nome", Toast.LENGTH_LONG).show();
                 } else {
                     prefs.edit().putString(playerNameKey, profileName).apply();
-                    gameData.setPlayer1(new Human(profileName, COLOR_BLACK, BOTTOM_SIDE));
-
-                    Intent startMainMenu = new Intent(getApplicationContext(), MainMenuActivity.class);
+                    prefs.edit().putString(profileImgKey,userData.getUtilizador1().getImgFile()).apply();
+                    userData.getUtilizador1().setNome(profileName);
+                    Intent startMainMenu = new Intent(getApplicationContext(), MainActivity.class);
                     startMainMenu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-
                     startActivity(startMainMenu);
                 }
 
-
             }
         });
+    }
+
+    public void onCapturarImagem(View view)
+    {
+        String strNome = editTextName.getText().toString();
+        if (strNome.isEmpty())
+        {
+            Toast.makeText(CreateProfileActivity.this, "É necessário preencher o nome!", Toast.LENGTH_SHORT).show();
+            findViewById(R.id.edNomeJogador).requestFocus();
+            return;
+        }
+        if(Build.VERSION.SDK_INT>=24)
+        {
+            try
+            {
+                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                m.invoke(null);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+        Intent intent = new Intent(this,CamaraActivity.class);
+        intent.putExtra("Nome", strNome);
+        startActivity(intent);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -122,7 +126,6 @@ public class CreateProfileActivity extends AppCompatActivity implements Constant
             imageButton.setImageBitmap(profilePhoto);
         }
     }
-
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();

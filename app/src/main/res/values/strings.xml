@@ -22,8 +22,7 @@
     <string name="historico">Historic</string>
     <string name="tempo_jogado">Time Played:</string>
     <string name="tempo_restante">Time Left:</string>
-    <string name="jogador1">Player 1</string>
-    <string name="jogador2">Player 2</string>
+
     <string name="ganhou_brancas">Won the white</string>
     <string name="ganhou_pretas">Won the black</string>
     <string name="jogador">Player:</string>
@@ -60,4 +59,11 @@
     <string name="server_espera">Waiting for a player</string>
     <string name="server_titulo">RPS Server</string>
     <string name="error_netconect">Error connection</string>
+
+    <string name="pc">Computer</string>
+    <string name="jogador1">Player 1</string>
+    <string name="jogador2">Player 2</string>
+    <string name="insertname">Inset Name:</string>
+    <string name="imagetut">Press the img to take a picture</string>
+    <string name="createprofile">Create Profile</string>
 </resources>

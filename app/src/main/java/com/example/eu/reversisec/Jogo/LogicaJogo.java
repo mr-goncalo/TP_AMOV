@@ -7,7 +7,8 @@ import com.example.eu.reversisec.R;
 import java.util.HashMap;
 
 public class LogicaJogo extends Application {
-    Utilizador utilizador;
+    Utilizador utilizador1;
+    Utilizador utilizador2;
     Tabuleiro tab;
     Jogador j1;
     Jogador j2;
@@ -16,7 +17,8 @@ public class LogicaJogo extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
-        utilizador = new Utilizador();
+        utilizador1 = new Utilizador();
+        utilizador2 = new Utilizador();
         tab = new Tabuleiro();
     }
 
@@ -107,12 +109,20 @@ public class LogicaJogo extends Application {
             bl.setPosValida(false);
     }
 
-    public Utilizador getUtilizador() {
-        return utilizador;
+    public Utilizador getUtilizador1() {
+        return utilizador1;
     }
 
-    public void setUtilizador(Utilizador utilizador) {
-        this.utilizador = utilizador;
+    public Utilizador getUtilizador2() {
+        return utilizador2;
+    }
+
+    public void setUtilizador2(Utilizador utilizador2) {
+        this.utilizador2 = utilizador2;
+    }
+
+    public void setUtilizador1(Utilizador utilizador1) {
+        this.utilizador1 = utilizador1;
     }
 
     public void setJ1(Jogador j1) {
