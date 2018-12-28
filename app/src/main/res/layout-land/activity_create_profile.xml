@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.eu.reversisec.Perfil.CreateProfileActivity" >
+
+    <TextView
+        android:id="@+id/lb_name_pf"
+        android:layout_width="138dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="20dp"
+        android:text="@string/insertname"
+        android:textColor="#FFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ed_profile_name"
+        app:layout_constraintStart_toEndOf="@+id/imgB_profile_pic" />
+
+    <EditText
+        android:id="@+id/ed_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="110dp"
+        android:ems="15"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColor="#5B7D87"
+        app:layout_constraintStart_toEndOf="@+id/imgB_profile_pic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgB_profile_pic"
+        android:layout_width="214dp"
+        android:layout_height="242dp"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/lb_img_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/imagetut"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgB_profile_pic"
+        app:layout_constraintVertical_bias="0.242" />
+
+    <Button
+        android:id="@+id/bt_create_profile"
+        android:layout_width="208dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botao_menu"
+        android:text="@string/createprofile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgB_profile_pic"
+        app:layout_constraintTop_toBottomOf="@+id/ed_profile_name" />
+</android.support.constraint.ConstraintLayout>
