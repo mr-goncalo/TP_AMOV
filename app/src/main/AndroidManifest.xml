@@ -31,6 +31,8 @@
         <activity android:name=".Perfil.EscolherPerfilActivity" />
         <activity android:name=".Perfil.NovoPerfilActivity" />
         <activity android:name=".Perfil.CamaraActivity" />
+        <activity android:name=".Views.MultiplayerLocalBoardActivity"></activity>
+        <activity android:name=".Views.MultiplayerLocalSetup"></activity>
     </application>
 
 </manifest>

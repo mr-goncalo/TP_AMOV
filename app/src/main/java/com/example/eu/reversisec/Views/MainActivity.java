@@ -32,15 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn2 =  findViewById(R.id.btnMultiplayer);
         Button btn3 = findViewById(R.id.btnJogarEmRede);
         Button btn4 = findViewById(R.id.btnHistorico);
-        /*Typeface font = Typeface.createFromAsset(getAssets(),"fonts/AmaticSC.ttf");
-        btn1.setTypeface(font);
-        btn2.setTypeface(font);
-        btn3.setTypeface(font);
-        btn4.setTypeface(font);
-        btn1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
-        btn2.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
-        btn3.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);
-        btn4.setTextSize(TypedValue.COMPLEX_UNIT_SP, 32);*/
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu)
@@ -63,10 +55,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onDoisJogadores(View v){
-      /*  Intent intent = new Intent(this,TemporizadorActivity.class);
-        boolean rede = false;
-        intent.putExtra("rede", rede);
-        startActivity(intent); */
+         Intent intent = new Intent(this,MultiplayerLocalSetup.class);
+
+        startActivity(intent);
     }
 
     public void onJogarEmRede(View v)

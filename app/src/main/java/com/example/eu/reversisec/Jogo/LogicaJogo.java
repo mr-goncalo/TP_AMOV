@@ -13,6 +13,7 @@ public class LogicaJogo extends Application {
     Jogador j1;
     Jogador j2;
     Jogador jAtual;
+    int gameType;
 
     @Override
     public void onCreate(){
@@ -25,6 +26,14 @@ public class LogicaJogo extends Application {
     public void inicio(){
         jAtual = j1;
         setBlocosV();
+    }
+
+    public int getGameType() {
+        return gameType;
+    }
+
+    public void setGameType(int gameType) {
+        this.gameType = gameType;
     }
 
     public Tabuleiro getTab(){return tab;}

@@ -16,4 +16,8 @@ public interface Constantes {
     int BRANCA = R.drawable.brancav2;
     int PRETA = R.drawable.pretav2;
     int VALIDA = R.drawable.vermelhav3;
+
+    int SINGLE = 1;
+    int MULTI_LOCAL = 2;
+    int ONLINE = 3;
 }

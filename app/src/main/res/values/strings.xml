@@ -66,4 +66,14 @@
     <string name="insertname">Inset Name:</string>
     <string name="imagetut">Press the img to take a picture</string>
     <string name="createprofile">Create Profile</string>
+    <string name="playAgain">Play again</string>
+    <string name="passTurn">Pass turn</string>
+    <string name="backbtmainmenu">Main Menu</string>
+    <string name="setupsinglelb">Choose a Color</string>
+    <string name="setupblackpiece">Black</string>
+    <string name="setupwhitepiece">White</string>
+    <string name="setupbtstartgame">Start Game</string>
+    <string name="setupplayer1">Player 1 Color</string>
+    <string name="setupplayer2">Player 2 Color</string>
+    <string name="setuplbname2">Insert Player 2 Name</string>
 </resources>
