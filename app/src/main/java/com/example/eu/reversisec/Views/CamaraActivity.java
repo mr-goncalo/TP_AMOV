@@ -204,8 +204,13 @@ public class CamaraActivity extends Activity {
                     {
                         output = new FileOutputStream(file);
                         output.write(bytes);
-                        LogicaJogo lJ = (LogicaJogo) getApplication();
-                        lJ.getUtilizador1().setImgFile(String.valueOf(file));
+                        if(!getIntent().getExtras().containsKey("player")) {
+                            LogicaJogo lJ = (LogicaJogo) getApplication();
+                            lJ.getUtilizador1().setImgFile(String.valueOf(file));
+                        }else{
+                            LogicaJogo lJ = (LogicaJogo) getApplication();
+                            lJ.getUtilizador2().setImgFile(String.valueOf(file));
+                        }
 
                     }
                     finally
