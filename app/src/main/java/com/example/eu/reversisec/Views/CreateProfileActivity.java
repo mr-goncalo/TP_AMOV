@@ -1,4 +1,4 @@
-package com.example.eu.reversisec.Perfil;
+package com.example.eu.reversisec.Views;
 
 
 import android.app.Activity;
@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,12 +20,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.lang.reflect.Method;
 
 import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.R;
-import com.example.eu.reversisec.Views.MainActivity;
 
 public class CreateProfileActivity extends AppCompatActivity  {
     ImageButton imageButton;
@@ -98,8 +95,7 @@ public class CreateProfileActivity extends AppCompatActivity  {
         if (strNome.isEmpty())
         {
             Toast.makeText(CreateProfileActivity.this, "É necessário preencher o nome!", Toast.LENGTH_SHORT).show();
-            findViewById(R.id.edNomeJogador).requestFocus();
-            return;
+             return;
         }
         if(Build.VERSION.SDK_INT>=24)
         {

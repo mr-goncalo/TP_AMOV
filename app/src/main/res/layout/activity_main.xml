@@ -38,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="onDoisJogadores"
-            android:text="@string/multiPLayer"
+            android:text="@string/multiPlayer"
             android:textColor="#000000"/>
     </LinearLayout>
     <LinearLayout
@@ -64,7 +64,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="onHistorico"
-            android:text="@string/historic"
+            android:text="@string/historico"
             android:textColor="#000000"
             android:id="@+id/btnHistorico"/>
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.eu.reversisec.Perfil;
+package com.example.eu.reversisec.Views;
 
 import android.Manifest;
 import android.app.Activity;

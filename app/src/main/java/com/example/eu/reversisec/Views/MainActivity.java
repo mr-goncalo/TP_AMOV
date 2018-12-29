@@ -1,20 +1,16 @@
 package com.example.eu.reversisec.Views;
 
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.TypedValue;
-import android.view.Menu;
+ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.eu.reversisec.Jogo.LogicaJogo;
-import com.example.eu.reversisec.Jogo.Utilizador;
-import com.example.eu.reversisec.R;
+ import com.example.eu.reversisec.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,18 +65,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onHistorico(View v){
-         Intent intent = new Intent(this,ConsultaHistoricoActivity.class);
-        startActivity(intent);
+      /*   Intent intent = new Intent(this,ConsultaHistoricoActivity.class);
+        startActivity(intent);*/
     }
 
     public void onSobre(MenuItem item)
-    {/*
+    {
         Intent intent = new Intent(this,SobreActivity.class);
-        startActivity(intent); */
-        Intent intent = new Intent(this,PerfilActivity.class);
         startActivity(intent);
     }
-
+/*
     public void onPerfil(MenuItem item)
     {
         Intent intent = new Intent(this,PerfilActivity.class);
@@ -90,5 +84,5 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(this,PerfilActivity.class);
         startActivity(intent);
-    }
+    }*/
 }

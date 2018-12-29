@@ -38,7 +38,7 @@ public class FragmentBackButton extends DialogFragment implements Constantes {
         btMainMenu = view.findViewById(R.id.button_main_menu);
 
         if (gameData.getGameType() == SINGLE) {
-            btChangeGameMode.setText(getResources().getString(R.string.multiPLayer));
+            btChangeGameMode.setText(getResources().getString(R.string.multiPlayer));
         } else {
             btChangeGameMode.setText(getResources().getString(R.string.singlePlayer));
         }
@@ -49,9 +49,9 @@ public class FragmentBackButton extends DialogFragment implements Constantes {
                // closeThread();
             //    gameData.changeMode();
                 if (gameData.getGameType() == SINGLE) {
-                    btChangeGameMode.setText(getResources().getString(R.string.multiPLayer));
+                    btChangeGameMode.setText(getResources().getString(R.string.multiPlayer));
 
-                     intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
+                     intent = new Intent(getActivity().getApplicationContext(), MultiplayerLocalBoardActivity.class);
                     gameData.setGameType(MULTI_LOCAL);
                 } else {
                     btChangeGameMode.setText(getResources().getString(R.string.singlePlayer));

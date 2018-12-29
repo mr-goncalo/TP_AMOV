@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Perfil.CreateProfileActivity">
+        <activity android:name=".Views.CreateProfileActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,12 +25,9 @@
         </activity>
 
         <activity android:name=".Views.MainActivity" />
-        <activity android:name=".Views.ConsultaHistoricoActivity" />
         <activity android:name=".Views.activity_modo_singleplayer"></activity>
-        <activity android:name=".Views.PerfilActivity" />
-        <activity android:name=".Perfil.EscolherPerfilActivity" />
-        <activity android:name=".Perfil.NovoPerfilActivity" />
-        <activity android:name=".Perfil.CamaraActivity" />
+        <activity android:name=".Views.SobreActivity"></activity>
+        <activity android:name=".Views.CamaraActivity" />
         <activity android:name=".Views.MultiplayerLocalBoardActivity"></activity>
         <activity android:name=".Views.MultiplayerLocalSetup"></activity>
     </application>

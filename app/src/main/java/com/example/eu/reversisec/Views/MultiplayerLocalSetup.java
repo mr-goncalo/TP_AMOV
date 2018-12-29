@@ -1,13 +1,19 @@
 package com.example.eu.reversisec.Views;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.R;
+
+import java.lang.reflect.Method;
 
 public class MultiplayerLocalSetup extends Activity {
     RadioButton rb_player1_black, rb_player2_black, rb_player1_white, rb_player2_white;
@@ -74,11 +80,44 @@ public class MultiplayerLocalSetup extends Activity {
         });
     }
 
-    private void onCapturarImg(View view){
+    public void onCapturarImg(View view){
+         if (p2Name.getText().toString().isEmpty())
+        {
+            Toast.makeText(this, "É necessário preencher o nome!", Toast.LENGTH_SHORT).show();
 
+            return;
+        }
+        if(Build.VERSION.SDK_INT>=24)
+        {
+            try
+            {
+                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                m.invoke(null);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+
+        Intent intent = new Intent(this,CamaraActivity.class);
+        intent.putExtra("Nome", p2Name.getText().toString());
+        intent.putExtra("player", "2");
+        startActivity(intent);
     }
 
-    private void onStart(View view){
+    public void onStart(View view){
+
+        //meter as configs para o jogo e começar a jogar
+
+        if(p2Name.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Introduzir Nome do Jogador", Toast.LENGTH_SHORT).show();
+            return;
+        }else{
+            gameData.getUtilizador2().setNome(p2Name.getText().toString());
+            Intent intent = new Intent(this,MultiplayerLocalBoardActivity.class);
+            startActivity(intent);
+        }
 
     }
 }

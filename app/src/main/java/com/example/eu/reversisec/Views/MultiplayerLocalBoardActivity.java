@@ -38,7 +38,7 @@ public class MultiplayerLocalBoardActivity extends Activity {
         tv2 = findViewById(R.id.tvNomeJogador2);
 
         tv1.setText(getResources().getString(R.string.jogador1)+": "+jogo.getUtilizador1().getNome());
-        tv2.setText(getResources().getString(R.string.jogador2)+": "+getResources().getString(R.string.pc));
+        tv2.setText(getResources().getString(R.string.jogador2)+": "+jogo.getUtilizador2().getNome());
         Bitmap myBitmap = null;
         if(jogo.getUtilizador1().getImgFile()!=null)
         {
@@ -47,9 +47,16 @@ public class MultiplayerLocalBoardActivity extends Activity {
             iv1 =   findViewById(R.id.ivFotoJogador1);
             iv1.setImageBitmap(myBitmap);
         }
-
-        ImageView iv2 =  findViewById(R.id.ivFotoJogador2);
-        iv2.setImageBitmap(myBitmap);
+        if(jogo.getUtilizador1().getImgFile()!=null)
+        {
+            fileJogador2 = new File(Environment.getExternalStorageDirectory()+"/"+jogo.getUtilizador2().getNome()+".jpg");
+            myBitmap = BitmapFactory.decodeFile(fileJogador2.getAbsolutePath());
+            iv2 =   findViewById(R.id.ivFotoJogador2);
+            iv2.setImageBitmap(myBitmap);
+        }else {
+            iv2 =   findViewById(R.id.ivFotoJogador2);
+            iv2.setImageDrawable(getResources().getDrawable(R.drawable.img_robot));
+        }
 
         tabuleiroV =   findViewById(R.id.tabuleiro);
         tabuleiroV.setNumColumns(8);
