@@ -7,13 +7,13 @@
 
     <stroke
         android:width="4dp"
-        android:color="#45415E" />
+        android:color="#FFA500" />
 
     <gradient
-        android:startColor="#5B7D87"
-        android:endColor="#91B3BC"
-        android:centerColor="#91B3BC"
-        android:angle="90"/>
+        android:startColor="#FFEFD5"
+        android:endColor="#FFEFD5"
+        android:centerColor="#FFDAB9"
+        android:angle="315"/>
 
 
 </shape>

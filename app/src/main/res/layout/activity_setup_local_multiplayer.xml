@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/cor_fundo">
 
 
     <LinearLayout
@@ -141,28 +142,30 @@
         android:inputType="textPersonName" />
     <Button
         android:onClick="onCapturarImg"
-         android:layout_width="wrap_content"
-        android:layout_height="47dp"
+         android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="8dp"
         android:text="@string/capturar_imagem"
         android:textAlignment="center"
         android:textColor="#45415E"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@drawable/botao_menu"/>
     <Button
         android:onClick="onStart"
-         android:layout_width="wrap_content"
-        android:layout_height="47dp"
+         android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_gravity="center"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="50dp"
         android:layout_marginBottom="8dp"
         android:text="@string/setupbtstartgame"
         android:textAlignment="center"
         android:textColor="#45415E"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:background="@drawable/botao_menu"/>
 </LinearLayout>
