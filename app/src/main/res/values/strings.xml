@@ -28,4 +28,8 @@
     <string name="multiPlayer">Two Player</string>
     <string name="multiPlayerOnline">Multiplayer</string>
     <string name="historico">Historic</string>
+    <string name="e_lb_name_p1">Player Name</string>
+    <string name="result">Result</string>
+    <string name="movesmade">Turns</string>
+
 </resources>

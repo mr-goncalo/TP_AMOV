@@ -3,7 +3,7 @@ package com.example.eu.reversisec.Jogo;
 import android.app.Application;
 
 import com.example.eu.reversisec.R;
-
+ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LogicaJogo extends Application {
@@ -14,12 +14,14 @@ public class LogicaJogo extends Application {
     Jogador j2;
     Jogador jAtual;
     int gameType;
+    public  ArrayList<Historico> historicos;
 
     @Override
     public void onCreate(){
         super.onCreate();
         utilizador1 = new Utilizador();
         utilizador2 = new Utilizador();
+        this.historicos = new ArrayList<>();
         tab = new Tabuleiro();
     }
 
@@ -94,6 +96,9 @@ public class LogicaJogo extends Application {
         reset();
     }
 
+    public ArrayList<Historico> getHistoricos() {
+        return historicos;
+    }
     public void mudaDeJogador(){
 
         if(jAtual == j1){

@@ -6,6 +6,7 @@ public class Utilizador {
     String nome;
     Bitmap foto;
     String imgFile;
+
     public String getNome() {
         return nome;
     }

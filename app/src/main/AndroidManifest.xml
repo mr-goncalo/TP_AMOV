@@ -30,6 +30,7 @@
         <activity android:name=".Views.CamaraActivity" />
         <activity android:name=".Views.MultiplayerLocalBoardActivity"></activity>
         <activity android:name=".Views.MultiplayerLocalSetup"></activity>
+        <activity android:name=".Views.HistoticoActivity"></activity>
     </application>
 
 </manifest>

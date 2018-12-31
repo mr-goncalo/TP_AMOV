@@ -1,2 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">reversIsec</string>
+    <string name="menu_sobre">Acerca</string>
+    <string name="title_activity_main">Actividade Principal</string>
+    <string name="mainTitle">ReversISEC</string>
+    <string name="sobre1">Trabalho prático Android 2018/2019 - Reversi</string>
+    <string name="sobre2">Aplicação realizada no âmbito da unidade curricular:</string>
+    <string name="sobre3">Arquiteturas Moveis</string>
+    <string name="sobre4">Feito por:</string>
+    <string name="pc">Computador</string>
+    <string name="jogador1">Jogador 1</string>
+    <string name="jogador2">Jogador 2</string>
+    <string name="insertname">Nome:</string>
+    <string name="imagetut">Clica para tirar uma foto</string>
+    <string name="createprofile">Criar Perfil</string>
+    <string name="playAgain">Jogar outra vez</string>
+    <string name="passTurn">Passar o turno</string>
+    <string name="backbtmainmenu">Menu principal</string>
+    <string name="setupsinglelb">Escolhe uma cor</string>
+    <string name="setupblackpiece">Preto</string>
+    <string name="setupwhitepiece">Branco</string>
+    <string name="setupbtstartgame">Começar</string>
+    <string name="setupplayer1">Cor do Jogador 1</string>
+    <string name="setupplayer2">Cor do Jogador 2</string>
+    <string name="setuplbname2">Nome Jogador 2</string>
+    <string name="capturar_imagem">Tirar foto</string>
+    <string name="singlePlayer">Um jogador</string>
+    <string name="multiPlayer">Dois jogadores</string>
+    <string name="multiPlayerOnline">Online</string>
+    <string name="historico">Histórico</string>
+    <string name="e_lb_name_p1">Nome Jogador</string>
+    <string name="movesmade">Turnos</string>
+    <string name="result">Resultado</string>
+</resources>

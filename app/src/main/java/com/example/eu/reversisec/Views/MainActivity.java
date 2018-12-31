@@ -65,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onHistorico(View v){
-      /*   Intent intent = new Intent(this,ConsultaHistoricoActivity.class);
-        startActivity(intent);*/
+       Intent intent = new Intent(this,HistoticoActivity.class);
+        startActivity(intent);
     }
 
     public void onSobre(MenuItem item)

@@ -3,77 +3,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.activity_modo_singleplayer"
-    android:orientation="horizontal"
+     android:orientation="horizontal"
     android:background="@drawable/cor_fundo">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1" android:orientation="vertical">
+        android:layout_weight=".4" android:orientation="vertical">
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+             android:orientation="vertical"
+            android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/ivFotoJogador1"
-                android:layout_width="70dp"
-                android:layout_marginTop="5dp"
-                android:layout_height="70dp"
-                android:layout_weight="1"
-                android:layout_marginRight="2dp"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                 android:layout_weight="1" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvNomeJogador1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
-                    android:layout_weight="1"
+                     android:layout_weight="1"
                     android:text="sssss"
                     android:textStyle="bold" />
+
                 <TextView
-                    android:layout_margin="1dp"
                     android:id="@+id/tvPecasJ1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                     android:layout_weight="1"
                     android:text="jjejej"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_weight="1" android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
             <ImageView
                 android:id="@+id/ivFotoJogador2"
-                android:layout_width="70dp"
-                android:layout_marginTop="5dp"
-                android:layout_height="70dp"
-                android:layout_weight="1"
-                android:layout_marginRight="2dp"
-                />
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1dp"
+                android:layout_weight="1" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tvNomeJogador2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
                     android:layout_weight="1"
-                    android:text="jjejej"
+                    android:text="sssss"
                     android:textStyle="bold" />
+
                 <TextView
-                    android:layout_margin="1dp"
                     android:id="@+id/tvPecasJ2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="jjejej"
                     android:layout_weight="1"
+                    android:text="jjejej"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
@@ -100,11 +105,15 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1">
         <GridView
             android:id="@+id/tabuleiro"
-            android:layout_width="400dp"
-            android:layout_height="389dp"
+            android:layout_width="680dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="match_parent"
             android:numColumns="auto_fit"
             android:padding="1dp"
             />

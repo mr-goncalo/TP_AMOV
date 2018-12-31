@@ -9,12 +9,25 @@ public abstract class Jogador {
     String nome;
     Bitmap foto;
     int pos;
+    int turnos;
 
     boolean jogadorAtual = false;
 
     public Jogador (LogicaJogo jogo, int img){
         this.jogo = jogo;
         this.img = img;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setTurnos(int turnos) {
+        this.turnos = turnos;
     }
 
     public void joga(){
@@ -37,5 +50,9 @@ public abstract class Jogador {
 
     public void setImg(int img) {
         this.img = img;
+    }
+
+    public int getTurnos() {
+    return turnos;
     }
 }
