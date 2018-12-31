@@ -1,7 +1,5 @@
 package com.example.eu.reversisec.Jogo;
 
-import com.example.eu.reversisec.R;
-
 import java.util.ArrayList;
 
 public class Tabuleiro {
@@ -48,10 +46,10 @@ public class Tabuleiro {
                     setBlocosAdj(this.blocos.get(j));
             }
 
-            blocos.get(27).setBlogoImg(R.drawable.brancav2);
-            blocos.get(36).setBlogoImg(R.drawable.brancav2);
-            blocos.get(28).setBlogoImg(R.drawable.pretav2);
-            blocos.get(35).setBlogoImg(R.drawable.pretav2);
+            blocos.get(27).setImagem(Constantes.BRANCA);
+            blocos.get(36).setImagem(Constantes.BRANCA);
+            blocos.get(28).setImagem(Constantes.PRETA);
+            blocos.get(35).setImagem(Constantes.PRETA);
     }
 
     public ArrayList<Bloco> getBlocos(){

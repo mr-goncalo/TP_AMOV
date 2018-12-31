@@ -1,20 +1,25 @@
 package com.example.eu.reversisec.Jogo;
 
 import android.app.Application;
+import android.widget.BaseAdapter;
 
-import com.example.eu.reversisec.R;
- import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LogicaJogo extends Application {
+
     Utilizador utilizador1;
     Utilizador utilizador2;
+
     Tabuleiro tab;
     Jogador j1;
     Jogador j2;
     Jogador jAtual;
     int gameType;
+    int turn;
     public  ArrayList<Historico> historicos;
+
+    BaseAdapter adapter;
 
     @Override
     public void onCreate(){
@@ -30,6 +35,13 @@ public class LogicaJogo extends Application {
         setBlocosV();
     }
 
+    public BaseAdapter getAdapter(){
+        return adapter;
+    }
+
+     @Override public void setAdapter(BaseAdapter adapter){
+        this.adapter = adapter;
+    }
     public int getGameType() {
         return gameType;
     }
@@ -52,19 +64,20 @@ public class LogicaJogo extends Application {
         else
             enimigo = j1.getImg();
 
-        if (blocoAtual == null ||blocoAtual.getBlogoImg() == Constantes.FUNDO || blocoAtual.getBlogoImg() == Constantes.VALIDA ||
-            blocoAtual.getBlogoImg()==jAtual.getImg() || bl.getBlogoImg() == enimigo || bl.getBlogoImg() == jAtual.getImg()){
+        if (blocoAtual == null ||blocoAtual.getImagem() == Constantes.FUNDO || blocoAtual.getImagem() == Constantes.VALIDA ||
+            blocoAtual.getImagem()==jAtual.getImg() || bl.getImagem() == enimigo || bl.getImagem() == jAtual.getImg()){
             return;
         }
 
 
 
-        while (blocoAtual != null && blocoAtual.getBlogoImg() == enimigo){
+        while (blocoAtual != null && blocoAtual.getImagem() == enimigo){
             blocoAtual = blocoAtual.getPosAdjacentes().get(dir);
         }
-
-        if(blocoAtual.getBlogoImg() == jAtual.getImg())
-            bl.getDirecoes().add(dir);
+        if(blocoAtual != null) {
+            if (blocoAtual.getImagem() == jAtual.getImg())
+                bl.getDirecoes().add(dir);
+        }
     }
 
     public void setBlocosV(){
@@ -72,7 +85,7 @@ public class LogicaJogo extends Application {
         boolean flag = false;
 
         for(Bloco bl : tab.getBlocos()){
-            bl.getDirecoes();
+            bl.getDirecoes().clear();
 
             HashMap<Integer, Bloco> blocoAdj = bl.getPosAdjacentes();
             validaDirecao(bl, Constantes.LEFT);
@@ -92,6 +105,7 @@ public class LogicaJogo extends Application {
     }
 
     public void fimDeTurno(){
+
         mudaDeJogador();
         reset();
     }

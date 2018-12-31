@@ -1,14 +1,12 @@
 package com.example.eu.reversisec.Jogo;
 
-import com.example.eu.reversisec.R;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Bloco {
     private int posX;
     private int posY;
-    private int blogoImg;
+    private int imagem;
     private int posicao;
 
     private HashMap<Integer, Bloco> PosAdjacentes;
@@ -25,35 +23,43 @@ public class Bloco {
 
         PosValida = false;
 
-        this.blogoImg = Constantes.FUNDO;
+        this.imagem = Constantes.FUNDO;
         this.PosAdjacentes = new HashMap<>();
         Direcoes = new ArrayList<>();
     }
 
-    public int getPosX(){return posX;}
+    public int getPosX(){
+        return posX;}
 
-    public void setPosX(int posX){this.posX = posX;}
-
-    public int getPosY(){return posY;}
-
-    public void setPosY(int posY){this.posY = posY;}
-
-    public int getBlogoImg(){
-        if(PosValida) return Constantes.VALIDA;
-
-        return blogoImg;
+    public void setPosX(int posX){
+        this.posX = posX;
     }
-    public void setBlogoImg(int BlocoImg){
-        this.blogoImg = BlocoImg;
+
+    public int getPosY(){
+        return posY;
+    }
+
+    public void setPosY(int posY){
+        this.posY = posY;
+    }
+
+    public int getImagem(){
+        if(PosValida)
+            return Constantes.VALIDA;
+
+        return imagem;
+    }
+    public void setImagem(int BlocoImg){
+        this.imagem = BlocoImg;
     }
 
     public void jogar(int img){
-        this.blogoImg = img;
+        this.imagem = img;
 
         for (int d: Direcoes){
             Bloco bloco = PosAdjacentes.get(d);
             if(bloco != null){
-                while(bloco != null && bloco.getBlogoImg()!= img){
+                while(bloco != null && bloco.getImagem()!= img){
                     bloco.vira();
                     bloco = bloco.getPosAdjacentes().get(d);
                 }
@@ -65,8 +71,11 @@ public class Bloco {
     }
 
     public void vira(){
-        if(blogoImg == Constantes.PRETA) blogoImg = Constantes.BRANCA; else
-        if(blogoImg == Constantes.BRANCA) blogoImg = Constantes.BRANCA;
+        if(imagem == Constantes.PRETA) {
+            imagem = Constantes.BRANCA; }
+        else if(imagem == Constantes.BRANCA) {
+                imagem = Constantes.BRANCA;
+        }
 
     }
 

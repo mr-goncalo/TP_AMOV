@@ -10,4 +10,8 @@ public class MeuJogador extends Jogador {
     public void setPos(int posicao) {
         pos = posicao;
     }
+
+    public MeuJogador(Jogador j){
+        super(j);
+    }
 }

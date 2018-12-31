@@ -10,12 +10,46 @@ public abstract class Jogador {
     Bitmap foto;
     int pos;
     int turnos;
+    int pontos;
 
+    boolean joga2Vezes;
+    boolean passaTurno;
     boolean jogadorAtual = false;
 
-    public Jogador (LogicaJogo jogo, int img){
+    public Jogador (LogicaJogo jogo, int img){ //confirmado
         this.jogo = jogo;
         this.img = img;
+        joga2Vezes = true;
+        passaTurno = true;
+
+    }
+
+    public Jogador(Jogador j){
+        this.jogo = j.jogo;
+        this.pontos = j.pontos;
+        this.passaTurno = j.passaTurno;
+        this.joga2Vezes = j.joga2Vezes;
+        this.nome = j.nome;
+        this.foto = j.foto;
+        this.pos = j.pos;
+        this.img = j. img;
+        this.jogadorAtual = j.jogadorAtual;
+    }
+
+    public boolean isJoga2Vezes() {
+        return joga2Vezes;
+    }
+
+    public void setJoga2Vezes(boolean joga2Vezes){
+        this.joga2Vezes = joga2Vezes;
+    }
+
+    public boolean isPassaTurno() {
+        return passaTurno;
+    }
+
+    public void setPassaTurno(boolean passaTurno){
+        this.passaTurno = passaTurno;
     }
 
     public String getNome() {

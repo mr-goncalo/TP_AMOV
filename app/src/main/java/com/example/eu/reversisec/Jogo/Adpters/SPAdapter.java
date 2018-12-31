@@ -47,7 +47,7 @@ public class SPAdapter extends BaseAdapter {
         final ImageView img = new ImageView(contexto);
 
         jogador = jogo.getjAtual();
-        img.setImageResource(this.jogo.getTab().getBlocos().get(pos).getBlogoImg());
+        img.setImageResource(this.jogo.getTab().getBlocos().get(pos).getImagem());
         img.setAdjustViewBounds(true);
 
         img.setOnClickListener(new View.OnClickListener() {
