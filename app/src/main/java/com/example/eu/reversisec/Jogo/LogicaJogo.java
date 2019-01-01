@@ -341,11 +341,11 @@ public class LogicaJogo extends Application {
 
     public int jogadaInteligente(){
         List<Bloco> blocos = tab.getBlocos();
-        List<Bloco> validas = new ArrayList<>();
+
         Map<Bloco, Integer> avalia = new HashMap<>();
 
         for(Bloco bl: blocos) {
-            if(bl.isPosValida())
+            if(!bl.isPosValida())
                 continue;
 
             ArrayList<Integer> direcaovalida = bl.getDirecoes();
