@@ -23,7 +23,12 @@ public class SPAdapter extends BaseAdapter {
         this.jogo = jogo;
     }
 
-    public void avisaAlteracoes(){
+    /*public void avisaAlteracoes(){
+        gridView.setAdapter(this);
+    }*/
+
+    @Override
+    public void notifyDataSetChanged() {
         gridView.setAdapter(this);
     }
 
@@ -60,7 +65,7 @@ public class SPAdapter extends BaseAdapter {
                jogador.setPos(pos);
                jogador.joga();
                jogo.fimDeTurno();
-               avisaAlteracoes();
+               notifyDataSetChanged();
             }
         });
 

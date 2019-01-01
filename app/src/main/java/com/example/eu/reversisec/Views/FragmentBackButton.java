@@ -68,7 +68,7 @@ public class FragmentBackButton extends DialogFragment implements Constantes {
             @Override
             public void onClick(View v) {
                 closeThread();
-            //    gameData.resetGameData();
+                gameData.resetDadosJogo();
                 intent = new Intent(getActivity().getApplicationContext(), MainActivity.class);
                 startActivity(intent);
 

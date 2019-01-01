@@ -5,13 +5,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.eu.reversisec.Jogo.Constantes;
 import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.Jogo.Adpters.SPAdapter;
+import com.example.eu.reversisec.Jogo.MaqJogador;
 import com.example.eu.reversisec.Jogo.MeuJogador;
 import com.example.eu.reversisec.R;
 
@@ -23,7 +27,8 @@ public class activity_modo_singleplayer extends Activity {
     SPAdapter spAdapter;
     File fileJogador1, fileJogador2;
     ImageView iv1, iv2;
-    TextView tv1,tv2;
+    TextView tv1,tv2, tv3, tv4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +38,18 @@ public class activity_modo_singleplayer extends Activity {
         jogo.setGameType(1);
         tv1 = findViewById(R.id.tvNomeJogador1);
         tv2 = findViewById(R.id.tvNomeJogador2);
+        tv3 = findViewById(R.id.tvPecasJ1);
+        tv4 = findViewById(R.id.tvPecasJ2);
 
         tv1.setText(getResources().getString(R.string.jogador1)+": "+jogo.getUtilizador1().getNome());
         tv2.setText(getResources().getString(R.string.jogador2)+": "+getResources().getString(R.string.pc));
+
+
+
+        jogo.setTvDadosJ1(tv3);
+        jogo.setTvDadosJ2(tv4);
+
+
 
         if(jogo.getUtilizador1().getImgFile()!=null)
         {
@@ -53,8 +67,10 @@ public class activity_modo_singleplayer extends Activity {
         tabuleiroV.setEnabled(false);
         spAdapter = new SPAdapter(this, tabuleiroV, jogo);
         tabuleiroV.setAdapter(spAdapter);
+        jogo.setAdapter(spAdapter);
         jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA));
-        jogo.setJ2(new MeuJogador(jogo, Constantes.BRANCA));
+        jogo.setJ2(new MaqJogador(jogo, Constantes.BRANCA));
+
 
         jogo.inicio();
     }
@@ -69,5 +85,20 @@ public class activity_modo_singleplayer extends Activity {
         FragmentBackButton setupTanksDialogFragment = new FragmentBackButton();
 
         setupTanksDialogFragment.show(getFragmentManager(), "setup");
+    }
+
+
+    public void onPassturn(View view) {
+        if (jogo.getjAtual().getTurnos() <= 5)
+            Toast.makeText(activity_modo_singleplayer.this, "Só disponível a partir do turno 5", Toast.LENGTH_SHORT).show();
+        else
+            jogo.PassaTurno();
+    }
+
+    public void onPlayAgain(View view) {
+        if (jogo.getjAtual().getTurnos() <= 5)
+            Toast.makeText(activity_modo_singleplayer.this, "Só disponível a partir do turno 5", Toast.LENGTH_SHORT).show();
+        else
+            jogo.joga2Vezes();
     }
 }

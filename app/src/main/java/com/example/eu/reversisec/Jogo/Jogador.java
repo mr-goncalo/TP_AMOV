@@ -9,11 +9,12 @@ public abstract class Jogador {
     String nome;
     Bitmap foto;
     int pos;
-    int turnos;
     int pontos;
+    int turnos;
 
     boolean joga2Vezes;
     boolean passaTurno;
+
     boolean jogadorAtual = false;
 
     public Jogador (LogicaJogo jogo, int img){ //confirmado
@@ -60,7 +61,7 @@ public abstract class Jogador {
         this.nome = nome;
     }
 
-    public void setTurnos(int turnos) {
+  public void setTurnos(int turnos) {
         this.turnos = turnos;
     }
 
@@ -87,6 +88,9 @@ public abstract class Jogador {
     }
 
     public int getTurnos() {
-    return turnos;
+         return turnos;
     }
+
+
+
 }

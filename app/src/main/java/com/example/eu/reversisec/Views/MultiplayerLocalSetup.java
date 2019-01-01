@@ -10,7 +10,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.eu.reversisec.Jogo.Constantes;
 import com.example.eu.reversisec.Jogo.LogicaJogo;
+import com.example.eu.reversisec.Jogo.MeuJogador;
 import com.example.eu.reversisec.R;
 
 import java.lang.reflect.Method;
@@ -27,7 +29,7 @@ public class MultiplayerLocalSetup extends Activity {
         gameData = (LogicaJogo) getApplication();
         p2Name = findViewById(R.id.edT_player2_name);
 
-         rb_player1_black = findViewById(R.id.radioButton_p1_black);
+        rb_player1_black = findViewById(R.id.radioButton_p1_black);
         rb_player2_black = findViewById(R.id.radioButton_p2_black);
         rb_player1_white = findViewById(R.id.radioButton_p1_white);
         rb_player2_white = findViewById(R.id.radioButton_p2_white);
@@ -109,6 +111,14 @@ public class MultiplayerLocalSetup extends Activity {
     public void onStart(View view){
 
         //meter as configs para o jogo e começar a jogar
+        if (rb_player1_black.isChecked()) {
+            gameData.setJ1(new MeuJogador(gameData, Constantes.PRETA));
+            gameData.setJ2(new MeuJogador(gameData, Constantes.BRANCA));
+        } else {
+            gameData.setJ1(new MeuJogador(gameData, Constantes.PRETA));
+            gameData.setJ2(new MeuJogador(gameData, Constantes.BRANCA));
+
+        }
 
         if(p2Name.getText().toString().isEmpty()){
             Toast.makeText(getApplicationContext(), "Introduzir Nome do Jogador", Toast.LENGTH_SHORT).show();

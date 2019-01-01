@@ -5,9 +5,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.eu.reversisec.Jogo.Adpters.SPAdapter;
 import com.example.eu.reversisec.Jogo.Constantes;
@@ -24,7 +26,7 @@ public class MultiplayerLocalBoardActivity extends Activity {
     SPAdapter spAdapter;
     File fileJogador1, fileJogador2;
     ImageView iv1, iv2;
-    TextView tv1,tv2;
+    TextView tv1,tv2, tv3, tv4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +38,14 @@ public class MultiplayerLocalBoardActivity extends Activity {
         jogo.setGameType(2);
         tv1 = findViewById(R.id.tvNomeJogador1);
         tv2 = findViewById(R.id.tvNomeJogador2);
+        tv3 = findViewById(R.id.tvPecasJ1);
+        tv4 = findViewById(R.id.tvPecasJ2);
 
         tv1.setText(getResources().getString(R.string.jogador1)+": "+jogo.getUtilizador1().getNome());
         tv2.setText(getResources().getString(R.string.jogador2)+": "+jogo.getUtilizador2().getNome());
+        jogo.setTvDadosJ1(tv3);
+        jogo.setTvDadosJ2(tv4);
+
         Bitmap myBitmap = null;
         if(jogo.getUtilizador1().getImgFile()!=null)
         {
@@ -63,8 +70,9 @@ public class MultiplayerLocalBoardActivity extends Activity {
         tabuleiroV.setEnabled(false);
         spAdapter = new SPAdapter(this, tabuleiroV, jogo);
         tabuleiroV.setAdapter(spAdapter);
-        jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA));
-        jogo.setJ2(new MeuJogador(jogo, Constantes.BRANCA));
+
+       jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA));
+       jogo.setJ2(new MeuJogador(jogo, Constantes.BRANCA));
 
         jogo.inicio();
     }
@@ -81,4 +89,32 @@ public class MultiplayerLocalBoardActivity extends Activity {
         setupTanksDialogFragment.show(getFragmentManager(), "setup");
     }
 
+
+    public void onPlayAgainMPJ2(View view) {
+        if (jogo.getjAtual().getTurnos() <= 5)
+            Toast.makeText(MultiplayerLocalBoardActivity.this, "Só disponível a partir do turno 5", Toast.LENGTH_SHORT).show();
+        else
+            jogo.joga2Vezes();
+    }
+
+    public void onpassturnMPJ2(View view) {
+        if (jogo.getjAtual().getTurnos() <= 5)
+            Toast.makeText(MultiplayerLocalBoardActivity.this, "Só disponível a partir do turno 5", Toast.LENGTH_SHORT).show();
+        else
+            jogo.PassaTurno();
+    }
+
+    public void onpassturnMPJ1(View view) {
+        if (jogo.getjAtual().getTurnos() <= 5)
+            Toast.makeText(MultiplayerLocalBoardActivity.this, "Só disponível a partir do turno 5", Toast.LENGTH_SHORT).show();
+        else
+            jogo.PassaTurno();
+    }
+
+    public void onPlayAgainMPJ1(View view) {
+        if (jogo.getjAtual().getTurnos() <= 5)
+            Toast.makeText(MultiplayerLocalBoardActivity.this, "Só disponível a partir do turno 5", Toast.LENGTH_SHORT).show();
+        else
+            jogo.joga2Vezes();
+    }
 }

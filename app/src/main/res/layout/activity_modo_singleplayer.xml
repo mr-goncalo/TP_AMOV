@@ -100,17 +100,21 @@
         android:layout_weight="1.1"
         android:orientation="horizontal"  >
          <Button
+             android:id="@+id/onPlaySP"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:text="@string/playAgain"
+             android:onClick="onPlayAgain"
              android:layout_weight="1"
              android:padding="5dp"
              android:background="@drawable/botao_menu"/>
 
         <Button
+            android:id="@+id/onPassSP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/passTurn"
+            android:onClick="onPassturn"
             android:layout_weight="1"
             android:background="@drawable/botao_menu"/>
     </LinearLayout>

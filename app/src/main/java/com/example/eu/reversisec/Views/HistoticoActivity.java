@@ -24,10 +24,10 @@ public class HistoticoActivity extends AppCompatActivity {
         LogicaJogo gameData = (LogicaJogo) getApplicationContext();
         Jogador p1  = new MeuJogador(gameData,1)  ;
         p1.setNome("ze");
-        p1.setTurnos(4);
+       // p1.setTurnos(4);
         Jogador p2 = new MeuJogador(gameData,1)  ;
         p2.setNome("manelk");
-        p2.setTurnos(4);
+      //  p2.setTurnos(4);
         gameData.historicos.add(new Historico(p1,p2));
         gameData.historicos.add(new Historico(p2,p1));
         gameData.historicos.add(new Historico(p1,p2));
