@@ -15,6 +15,57 @@ public class Bloco {
 
     private ArrayList<Integer> Direcoes;
 
+
+
+
+
+    public void addPosAdjacentes(Bloco PosAdjacentes, int AdjKey) {
+        this.PosAdjacentes.put(AdjKey, PosAdjacentes);
+    }
+
+
+
+    //============GET============
+    public ArrayList<Integer> getDirecoes() {
+        return Direcoes;
+    }
+
+
+    public int getPosX(){
+        return posX;}
+
+
+    public int getPosY(){
+
+        return posY;
+    }
+
+
+    public int getImagem(){
+        if(PosValida)
+            return Constantes.VALIDA;
+
+        return imagem;
+    }
+
+    public int getPosicao() {
+        return posicao;
+    }
+
+    public HashMap<Integer, Bloco> getPosAdjacentes() {
+        return PosAdjacentes;
+    }
+
+    //============SET============
+    public void setImagem(int BlocoImg){
+        this.imagem = BlocoImg;
+    }
+
+    public void setPosValida(boolean PosValida) {
+        this.PosValida = PosValida;
+    }
+    //============Outros============
+
     public Bloco(int posicao, int posX, int posY){
         this.posX = posX;
         this.posY = posY;
@@ -28,30 +79,6 @@ public class Bloco {
         Direcoes = new ArrayList<>();
     }
 
-    public int getPosX(){
-        return posX;}
-
-    public void setPosX(int posX){
-        this.posX = posX;
-    }
-
-    public int getPosY(){
-        return posY;
-    }
-
-    public void setPosY(int posY){
-        this.posY = posY;
-    }
-
-    public int getImagem(){
-        if(PosValida)
-            return Constantes.VALIDA;
-
-        return imagem;
-    }
-    public void setImagem(int BlocoImg){
-        this.imagem = BlocoImg;
-    }
 
     public void jogar(int img){
         this.imagem = img;
@@ -64,9 +91,6 @@ public class Bloco {
                     bloco = bloco.getPosAdjacentes().get(d);
                 }
             }
-
-
-
         }
     }
 
@@ -74,45 +98,14 @@ public class Bloco {
         if(imagem == Constantes.PRETA) {
             imagem = Constantes.BRANCA; }
         else if(imagem == Constantes.BRANCA) {
-                imagem = Constantes.BRANCA;
+            imagem = Constantes.BRANCA;
         }
 
-    }
-
-    public int getPosicao() {
-        return posicao;
-    }
-
-    public void setPosicao(int posicao) {
-        this.posicao = posicao;
-    }
-
-    public HashMap<Integer, Bloco> getPosAdjacentes() {
-        return PosAdjacentes;
-    }
-
-    public void setPosAdjacentes(HashMap<Integer, Bloco> PosAdjacentes) {
-        this.PosAdjacentes = PosAdjacentes;
     }
 
     public boolean isPosValida() {
         return PosValida;
     }
 
-    public void setPosValida(boolean PosValida) {
-        this.PosValida = PosValida;
-    }
-
-    public void addPosAdjacentes(Bloco PosAdjacentes, int AdjKey) {
-        this.PosAdjacentes.put(AdjKey, PosAdjacentes);
-    }
-
-    public ArrayList<Integer> getDirecoes() {
-        return Direcoes;
-    }
-
-    public void setDirecoes(ArrayList<Integer> Direcoes) {
-        this.Direcoes = Direcoes;
-    }
 
 }

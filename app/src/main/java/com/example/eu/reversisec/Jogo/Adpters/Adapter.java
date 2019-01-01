@@ -11,21 +11,18 @@ import android.widget.ImageView;
 import com.example.eu.reversisec.Jogo.Jogador;
 import com.example.eu.reversisec.Jogo.LogicaJogo;
 
-public class SPAdapter extends BaseAdapter {
+public class Adapter extends BaseAdapter {
     Jogador jogador;
     Context contexto;
     GridView gridView;
     LogicaJogo jogo;
 
-    public SPAdapter(Context contexto, GridView gridView, LogicaJogo jogo){
+    public Adapter(Context contexto, GridView gridView, LogicaJogo jogo){
         this.contexto = contexto;
         this.gridView = gridView;
         this.jogo = jogo;
     }
 
-    /*public void avisaAlteracoes(){
-        gridView.setAdapter(this);
-    }*/
 
     @Override
     public void notifyDataSetChanged() {

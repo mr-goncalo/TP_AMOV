@@ -11,7 +11,4 @@ public class MeuJogador extends Jogador {
         pos = posicao;
     }
 
-    public MeuJogador(Jogador j){
-        super(j);
-    }
 }

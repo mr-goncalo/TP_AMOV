@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 
 public class Utilizador {
     String nome;
-    Bitmap foto;
     String imgFile;
 
     public String getNome() {
@@ -23,11 +22,4 @@ public class Utilizador {
         this.nome = nome;
     }
 
-    public Bitmap getFoto(){
-        return foto;
-    }
-
-    public void setFoto(Bitmap foto){
-        this.foto = foto;
-    }
 }

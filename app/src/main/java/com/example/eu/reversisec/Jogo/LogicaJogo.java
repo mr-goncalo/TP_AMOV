@@ -44,13 +44,9 @@ public class LogicaJogo extends Application {
 
 
 
-    public void setFim(acabaJogo fim) {
-        this.fim = fim;
-    }
 
-    public acabaJogo getFim() {
-        return fim;
-    }
+
+
 
     public  ArrayList<Historico> historicos;
 
@@ -66,16 +62,126 @@ public class LogicaJogo extends Application {
         carregaHistorico();
     }
 
-    public void resetDadosJogo(){
-        j1= null;
-        j2= null;
-        tab = new Tabuleiro();
-        turnJ2 = 0;
-        turnJ1 = 0;
-        pontosJ2 = 0;
-        pontosJ1 = 0;
+
+
+
+
+
+    //============GET============
+    public int getGameType() {
+        return gameType;
     }
 
+    public Tabuleiro getTab(){return tab;}
+
+    public String getPerdedor(){
+        if(pontosJ1 < pontosJ2){
+            return j1.nome;
+        }
+        else
+            return j2.getNome();
+    }
+
+    public String getVencedor(){
+        if(pontosJ1 > pontosJ2){
+            return j1.nome;
+        }
+        else
+            return j2.getNome();
+    }
+    public int getTurnJ1() {
+        return turnJ1;
+    }
+
+    public int getTurnJ2() {
+        return turnJ2;
+    }
+
+    public int getPontosJ1() {
+        return pontosJ1;
+    }
+
+    public int getPontosJ2() {
+        return pontosJ2;
+    }
+
+    public Jogador getjAtual() {
+        return jAtual;
+    }
+
+    public Utilizador getUtilizador1() {
+        return utilizador1;
+    }
+
+    public Utilizador getUtilizador2() {
+        return utilizador2;
+    }
+
+    public ArrayList<Historico> getHistoricos() {
+        return historicos;
+    }
+
+    //============SET============
+
+    public void setGameType(int gameType) {
+        this.gameType = gameType;
+    }
+
+    public void setAdapter(BaseAdapter adapter){
+        this.adapter = adapter;
+    }
+
+    public void setFim(acabaJogo fim) {
+        this.fim = fim;
+    }
+
+    public void setPontosJ1(int pontosJ1) {
+        this.pontosJ1 = pontosJ1;
+    }
+
+    public void setPontosJ2(int pontosJ2) {
+        this.pontosJ2 = pontosJ2;
+    }
+
+    public void setTvDadosJ1(TextView tvDadosJ1) {
+        this.tvDadosJ1 = tvDadosJ1;
+    }
+
+    public void setTvDadosJ2(TextView tvDadosJ2) {
+        this.tvDadosJ2 = tvDadosJ2;
+    }
+
+    public void setJ1(Jogador j1) {
+        this.j1 = j1;
+    }
+
+
+    public void setJ2(Jogador j2) {
+        this.j2 = j2;
+    }
+
+    public void setBlocosV(){
+
+
+        for(Bloco bl : tab.getBlocos()){
+            bl.getDirecoes().clear();
+            validaDirecao(bl, Constantes.LEFT);
+            validaDirecao(bl, Constantes.UPPER_LEFT);
+            validaDirecao(bl, Constantes.UPPER);
+            validaDirecao(bl, Constantes.UPPER_RIGHT);
+            validaDirecao(bl, Constantes.RIGHT);
+            validaDirecao(bl, Constantes.BOTTOM_RIGHT);
+            validaDirecao(bl, Constantes.BOTTOM);
+            validaDirecao(bl, Constantes.BOTTOM_LEFT);
+
+            if (bl.getDirecoes().size()>0)
+                bl.setPosValida(true);
+            else
+                bl.setPosValida(false);
+        }
+    }
+
+    //============Outros============
     public void inicio(){
         jAtual = j1;
         setBlocosV();
@@ -87,24 +193,15 @@ public class LogicaJogo extends Application {
         tvDadosJ2.setText("Turn: "+getTurnJ2()+"\nScore: 2");
     }
 
-    public BaseAdapter getAdapter(){
-        return adapter;
+    public void resetDadosJogo(){
+        j1= null;
+        j2= null;
+        tab = new Tabuleiro();
+        turnJ2 = 0;
+        turnJ1 = 0;
+        pontosJ2 = 0;
+        pontosJ1 = 0;
     }
-
-    public void setAdapter(BaseAdapter adapter){
-        this.adapter = adapter;
-    }
-    public int getGameType() {
-        return gameType;
-    }
-
-    public void setGameType(int gameType) {
-        this.gameType = gameType;
-    }
-
-    public Tabuleiro getTab(){return tab;}
-
-    public void setTab (Tabuleiro tab){this.tab=tab;}
 
     public void validaDirecao(Bloco bl, int dir){
         Bloco blocoAtual;
@@ -132,57 +229,6 @@ public class LogicaJogo extends Application {
         }
     }
 
-    public void setBlocosV(){
-        Bloco blocoAtual;
-        boolean flag = false;
-
-        for(Bloco bl : tab.getBlocos()){
-            bl.getDirecoes().clear();
-
-            HashMap<Integer, Bloco> blocoAdj = bl.getPosAdjacentes();
-            validaDirecao(bl, Constantes.LEFT);
-            validaDirecao(bl, Constantes.UPPER_LEFT);
-            validaDirecao(bl, Constantes.UPPER);
-            validaDirecao(bl, Constantes.UPPER_RIGHT);
-            validaDirecao(bl, Constantes.RIGHT);
-            validaDirecao(bl, Constantes.BOTTOM_RIGHT);
-            validaDirecao(bl, Constantes.BOTTOM);
-            validaDirecao(bl, Constantes.BOTTOM_LEFT);
-
-            if (bl.getDirecoes().size()>0)
-                bl.setPosValida(true);
-            else
-                bl.setPosValida(false);
-        }
-    }
-
-    public void fimDeTurno(){
-        if(!isJoga2Vezes()){
-            mudaDeJogador();
-        }
-
-        if(reset())
-            return;
-
-
-        if(jAtual instanceof MaqJogador){
-            adapter.notifyDataSetChanged();
-            //mudaDeJogador();
-
-            int posicao = jogadaInteligente();
-            if(posicao >=0) {
-                jAtual.setPos(posicao);
-                jAtual.joga();
-            }
-            fimDeTurno();
-            adapter.notifyDataSetChanged();
-        }
-        joga2Vezes = false;
-    }
-
-    public ArrayList<Historico> getHistoricos() {
-        return historicos;
-    }
 
     public void mudaDeJogador(){
 
@@ -255,102 +301,8 @@ public class LogicaJogo extends Application {
             bl.setPosValida(false);
     }
 
-    public Utilizador getUtilizador1() {
-        return utilizador1;
-    }
-
-    public Utilizador getUtilizador2() {
-        return utilizador2;
-    }
-
-    public void setUtilizador2(Utilizador utilizador2) {
-        this.utilizador2 = utilizador2;
-    }
-
-    public void setUtilizador1(Utilizador utilizador1) {
-        this.utilizador1 = utilizador1;
-    }
-
-    public void setJ1(Jogador j1) {
-        this.j1 = j1;
-    }
-
-    public Jogador getJ1() {
-        return j1;
-    }
-
-    public Jogador getJ2() {
-        return j2;
-    }
-
-    public void setJ2(Jogador j2) {
-        this.j2 = j2;
-    }
-
-    public Jogador getjAtual() {
-        return jAtual;
-    }
-
-    public void setjAtual(Jogador jAtual) {
-        this.jAtual = jAtual;
-    }
-
-    public boolean isPassaTurno() {
-        return passaTurno;
-    }
-
     public boolean isJoga2Vezes() {
         return joga2Vezes;
-    }
-
-
-
-    public int getTurnJ1() {
-        return turnJ1;
-    }
-
-    public int getTurnJ2() {
-        return turnJ2;
-    }
-
-    public void setTurnJ1(int turnJ1) {
-        this.turnJ1 = turnJ1;
-    }
-
-    public void setTurnJ2(int turnJ2) {
-        this.turnJ2 = turnJ2;
-    }
-
-    public int getPontosJ1() {
-        return pontosJ1;
-    }
-
-    public int getPontosJ2() {
-        return pontosJ2;
-    }
-
-    public void setPontosJ1(int pontosJ1) {
-        this.pontosJ1 = pontosJ1;
-    }
-
-    public void setPontosJ2(int pontosJ2) {
-        this.pontosJ2 = pontosJ2;
-    }
-
-    public TextView getTvDadosJ1() {
-        return tvDadosJ1;
-    }
-
-    public TextView getTvDadosJ2() {
-        return tvDadosJ2;
-    }
-
-    public void setTvDadosJ1(TextView tvDadosJ1) {
-        this.tvDadosJ1 = tvDadosJ1;
-    }
-
-    public void setTvDadosJ2(TextView tvDadosJ2) {
-        this.tvDadosJ2 = tvDadosJ2;
     }
 
     private boolean hasPosvalidas(){
@@ -413,31 +365,29 @@ public class LogicaJogo extends Application {
         }
     }
 
-
-
-    public void setJoga2Vezes(boolean joga2Vezes) {
-        this.joga2Vezes = joga2Vezes;
-    }
-
-    public void setPassaTurno(boolean passaTurno) {
-        this.passaTurno = passaTurno;
-    }
-
-    public String getPerdedor(){
-        if(pontosJ1 < pontosJ2){
-            return j1.nome;
+    public void fimDeTurno(){
+        if(!isJoga2Vezes()){
+            mudaDeJogador();
         }
-        else
-            return j2.getNome();
+
+        if(reset())
+            return;
+
+
+        if(jAtual instanceof MaqJogador){
+            adapter.notifyDataSetChanged();
+
+            int posicao = jogadaInteligente();
+            if(posicao >=0) {
+                jAtual.setPos(posicao);
+                jAtual.joga();
+            }
+            fimDeTurno();
+            adapter.notifyDataSetChanged();
+        }
+        joga2Vezes = false;
     }
 
-    public String getVencedor(){
-        if(pontosJ1 > pontosJ2){
-            return j1.nome;
-        }
-        else
-            return j2.getNome();
-    }
 
     public String turnosVencedor(){
         String msg;
@@ -459,7 +409,7 @@ public class LogicaJogo extends Application {
 
     public void guardaHistorico() {
         try {
-            FileOutputStream fos = this.openFileOutput("perfis2.dat", MODE_PRIVATE);
+            FileOutputStream fos = this.openFileOutput("historico.dat", MODE_PRIVATE);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(this.historicos);
             fos.close();
@@ -474,7 +424,7 @@ public class LogicaJogo extends Application {
     public void carregaHistorico() {
         historicos = null;
         try {
-            FileInputStream fis = this.openFileInput("perfis2.dat");
+            FileInputStream fis = this.openFileInput("historico.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
             ArrayList<Historico> lst = (ArrayList<Historico>) ois.readObject();
             historicos = lst;

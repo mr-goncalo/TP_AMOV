@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.eu.reversisec.Jogo.Adpters.SPAdapter;
+import com.example.eu.reversisec.Jogo.Adpters.Adapter;
 import com.example.eu.reversisec.Jogo.Constantes;
 import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.Jogo.MeuJogador;
@@ -26,7 +26,7 @@ public class MultiplayerLocalBoardActivity extends Activity implements acabaJogo
 
     LogicaJogo jogo;
     GridView tabuleiroV;
-    SPAdapter spAdapter;
+    Adapter adapter;
     File fileJogador1, fileJogador2;
     ImageView iv1, iv2;
     TextView tv1,tv2, tv3, tv4;
@@ -73,8 +73,8 @@ public class MultiplayerLocalBoardActivity extends Activity implements acabaJogo
         tabuleiroV =   findViewById(R.id.tabuleiro);
         tabuleiroV.setNumColumns(8);
         tabuleiroV.setEnabled(false);
-        spAdapter = new SPAdapter(this, tabuleiroV, jogo);
-        tabuleiroV.setAdapter(spAdapter);
+        adapter = new Adapter(this, tabuleiroV, jogo);
+        tabuleiroV.setAdapter(adapter);
 
        jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA, jogo.getUtilizador1().getNome()));
        jogo.setJ2(new MeuJogador(jogo, Constantes.BRANCA, jogo.getUtilizador2().getNome()));

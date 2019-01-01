@@ -91,9 +91,6 @@ public class FragmentBackButton extends DialogFragment implements Constantes {
     };
 
     private void  closeThread(){
-    /*        if(gameData.getTimeThread()!=null){
-            gameData.getTimeThread().closeThread();
-            gameData.getTimeThread().interrupt();
-        }*/
+
     }
 }

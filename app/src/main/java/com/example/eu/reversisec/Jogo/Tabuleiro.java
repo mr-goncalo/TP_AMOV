@@ -56,9 +56,6 @@ public class Tabuleiro {
         return blocos;
     }
 
-    public void setBlocos(ArrayList<Bloco> blocos) {
-        this.blocos = blocos;
-    }
 
     private void setBlocosAdj(Bloco bloco){
         switch (bloco.getPosX()){
@@ -129,4 +126,6 @@ public class Tabuleiro {
 
         }
     }
+
+
 }

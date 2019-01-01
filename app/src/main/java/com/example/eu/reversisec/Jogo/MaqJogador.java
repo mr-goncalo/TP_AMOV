@@ -5,10 +5,6 @@ public class MaqJogador extends Jogador {
         super(jogo, img, nome);
     }
 
-    public MaqJogador(Jogador j){
-        super(j);
-    }
-
     @Override
     public void setPos(int pos) {
         this.pos = pos;

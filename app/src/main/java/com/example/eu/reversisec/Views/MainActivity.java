@@ -58,10 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onJogarEmRede(View v)
     {
-       /* Intent intent = new Intent(this,TemporizadorActivity.class);
-        boolean rede = true;
-        intent.putExtra("rede", rede);
-        startActivity(intent); */
+
     }
 
     public void onHistorico(View v){
@@ -74,15 +71,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,SobreActivity.class);
         startActivity(intent);
     }
-/*
-    public void onPerfil(MenuItem item)
-    {
-        Intent intent = new Intent(this,PerfilActivity.class);
-        startActivity(intent);
-    }
-    public void onLinguagem(MenuItem item)
-    {
-        Intent intent = new Intent(this,PerfilActivity.class);
-        startActivity(intent);
-    }*/
+
 }

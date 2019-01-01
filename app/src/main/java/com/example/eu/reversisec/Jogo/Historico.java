@@ -11,21 +11,34 @@ public class Historico implements Serializable {
     String Vencedor, Perdedor;
     String TVencedor, TPerdedor;
 
-    public String getVencedor() {
-        return Vencedor;
+    //============GET============
+    public String getTPerdedor() {
+        return TPerdedor;
     }
 
-    public void setVencedor(String Vencedor) {
-        this.Vencedor = Vencedor;
+    public String getTVencedor() {
+        return TVencedor;
+    }
+
+    public String getVencedor() {
+        return Vencedor;
     }
 
     public String getPerdedor() {
         return Perdedor;
     }
 
+
+    //============SET============
+
     public void setPerdedor(String Perdedor) {
         this.Perdedor = Perdedor;
     }
+
+    public void setVencedor(String Vencedor) {
+        this.Vencedor = Vencedor;
+    }
+    //============Outros============
 
     public void turnosVencedor(String turno){
         this.TVencedor = turno;
@@ -33,13 +46,5 @@ public class Historico implements Serializable {
 
     public void turnosPerdedor(String TPerdedor) {
         this.TPerdedor = TPerdedor;
-    }
-
-    public String getTPerdedor() {
-        return TPerdedor;
-    }
-
-    public String getTVencedor() {
-        return TVencedor;
     }
 }

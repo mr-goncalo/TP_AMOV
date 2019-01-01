@@ -17,6 +17,51 @@ public abstract class Jogador {
 
     boolean jogadorAtual = false;
 
+    public void joga(){
+        jogo.getTab().getBlocos().get(pos).jogar(img);
+    }
+
+
+
+
+    //============GET============
+
+    public int getImg() {
+        return img;
+    }
+
+
+    public int getTurnos() {
+        return turnos;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+
+
+    //============SET============
+    public abstract void setPos(int pos);
+
+
+
+    public void setJogadorAtual(boolean jogadorAtual) {
+        this.jogadorAtual = jogadorAtual;
+    }
+
+    public void setTurnos(int turnos) {
+        this.turnos = turnos;
+    }
+    public void setPassaTurno(boolean passaTurno){
+        this.passaTurno = passaTurno;
+    }
+
+    public void setJoga2Vezes(boolean joga2Vezes){
+        this.joga2Vezes = joga2Vezes;
+    }
+
+    //============Outros============
     public Jogador (LogicaJogo jogo, int img, String nome){ //confirmado
         this.jogo = jogo;
         this.img = img;
@@ -26,72 +71,16 @@ public abstract class Jogador {
 
     }
 
-    public Jogador(Jogador j){
-        this.jogo = j.jogo;
-        this.pontos = j.pontos;
-        this.passaTurno = j.passaTurno;
-        this.joga2Vezes = j.joga2Vezes;
-        this.nome = j.nome;
-        this.foto = j.foto;
-        this.pos = j.pos;
-        this.img = j. img;
-        this.jogadorAtual = j.jogadorAtual;
-    }
+
 
     public boolean isJoga2Vezes() {
         return joga2Vezes;
     }
 
-    public void setJoga2Vezes(boolean joga2Vezes){
-        this.joga2Vezes = joga2Vezes;
-    }
+
 
     public boolean isPassaTurno() {
         return passaTurno;
     }
-
-    public void setPassaTurno(boolean passaTurno){
-        this.passaTurno = passaTurno;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-  public void setTurnos(int turnos) {
-        this.turnos = turnos;
-    }
-
-    public void joga(){
-        jogo.getTab().getBlocos().get(pos).jogar(img);
-    }
-
-    public abstract void setPos(int pos);
-
-    public boolean isJogadorAtual() {
-        return jogadorAtual;
-    }
-
-    public void setJogadorAtual(boolean jogadorAtual) {
-        this.jogadorAtual = jogadorAtual;
-    }
-
-    public int getImg() {
-        return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
-    }
-
-    public int getTurnos() {
-         return turnos;
-    }
-
-
 
 }

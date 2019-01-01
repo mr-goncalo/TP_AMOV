@@ -19,5 +19,5 @@ public interface Constantes {
 
     int SINGLE = 1;
     int MULTI_LOCAL = 2;
-    int ONLINE = 3;
+
 }
