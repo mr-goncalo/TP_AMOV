@@ -17,23 +17,13 @@ import com.example.eu.reversisec.R;
 
 public class HistoticoActivity extends AppCompatActivity {
 
+    LogicaJogo jogo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_histotico);
         LogicaJogo gameData = (LogicaJogo) getApplicationContext();
-        Jogador p1  = new MeuJogador(gameData,1)  ;
-        p1.setNome("ze");
-       // p1.setTurnos(4);
-        Jogador p2 = new MeuJogador(gameData,1)  ;
-        p2.setNome("manelk");
-      //  p2.setTurnos(4);
-        gameData.historicos.add(new Historico(p1,p2));
-        gameData.historicos.add(new Historico(p2,p1));
-        gameData.historicos.add(new Historico(p1,p2));
-        gameData.historicos.add(new Historico(p1,p2));
-        gameData.historicos.add(new Historico(p2,p2));
-        gameData.historicos.add(new Historico(p2,p1));
+
         ListView listView = findViewById(R.id.my_listView);
         ListAdapter listAdapter = new ListAdapter(gameData);
         listView.setAdapter(listAdapter);
@@ -95,13 +85,13 @@ public class HistoticoActivity extends AppCompatActivity {
 
 
             LogicaJogo gameData = (LogicaJogo) getApplicationContext();
-            nameWinner.setText(gameData.getHistoricos().get(position).getWinner().getNome());
-            nameLoser.setText(gameData.getHistoricos().get(position).getLoser().getNome());
+            nameWinner.setText(gameData.getHistoricos().get(position).getVencedor());
+            nameLoser.setText(gameData.getHistoricos().get(position).getPerdedor());
             resultWinner.setText("Winner");
             resultLoser.setText("Loser");
-            String winnerMoves = String.valueOf(gameData.getHistoricos().get(position).getWinner().getTurnos());
+            String winnerMoves = String.valueOf(gameData.getHistoricos().get(position).getTVencedor());
             movesWinner.setText(winnerMoves);
-            String loserMoves = String.valueOf(gameData.getHistoricos().get(position).getLoser().getTurnos());
+            String loserMoves = String.valueOf(gameData.getHistoricos().get(position).getTPerdedor());
             movesLoser.setText(loserMoves);
 
             resultWinner.setTextColor(0xFF000000);

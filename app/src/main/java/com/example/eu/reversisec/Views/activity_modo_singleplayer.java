@@ -17,6 +17,7 @@ import com.example.eu.reversisec.Jogo.LogicaJogo;
 import com.example.eu.reversisec.Jogo.Adpters.SPAdapter;
 import com.example.eu.reversisec.Jogo.MaqJogador;
 import com.example.eu.reversisec.Jogo.MeuJogador;
+import com.example.eu.reversisec.Jogo.Utilizador;
 import com.example.eu.reversisec.R;
 
  import java.io.File;
@@ -68,8 +69,8 @@ public class activity_modo_singleplayer extends Activity {
         spAdapter = new SPAdapter(this, tabuleiroV, jogo);
         tabuleiroV.setAdapter(spAdapter);
         jogo.setAdapter(spAdapter);
-        jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA));
-        jogo.setJ2(new MaqJogador(jogo, Constantes.BRANCA));
+        jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA, jogo.getUtilizador1().getNome()));
+        jogo.setJ2(new MaqJogador(jogo, Constantes.BRANCA, "Computador"));
 
 
         jogo.inicio();

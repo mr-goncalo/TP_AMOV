@@ -8,38 +8,38 @@ import java.io.Serializable;
 
 public class Historico implements Serializable {
     private static final long serialVersionUID = -33318182028391L;
-    Jogador winner;
-    Jogador loser;
-    int player1Turnos;
-    int player2Turnos;
-    public Historico(Jogador player1, Jogador player2) {
-        this.winner = player1;
-        this.loser = player2;
-        this.player1Turnos = player1.getTurnos();
-        this.player2Turnos = player2.getTurnos();
+    String Vencedor, Perdedor;
+    String TVencedor, TPerdedor;
+
+    public String getVencedor() {
+        return Vencedor;
     }
 
-    public Jogador getWinner() {
-        return winner;
+    public void setVencedor(String Vencedor) {
+        this.Vencedor = Vencedor;
     }
 
-    public void setWinner(Jogador winner) {
-        this.winner = winner;
+    public String getPerdedor() {
+        return Perdedor;
     }
 
-    public Jogador getLoser() {
-        return loser;
+    public void setPerdedor(String Perdedor) {
+        this.Perdedor = Perdedor;
     }
 
-    public void setLoser(Jogador loser) {
-        this.loser = loser;
+    public void turnosVencedor(String turno){
+        this.TVencedor = turno;
     }
 
-    public int getPlayer1Moves() {
-        return player1Turnos;
+    public void turnosPerdedor(String TPerdedor) {
+        this.TPerdedor = TPerdedor;
     }
 
-    public int getPlayer2Moves() {
-        return player2Turnos;
+    public String getTPerdedor() {
+        return TPerdedor;
+    }
+
+    public String getTVencedor() {
+        return TVencedor;
     }
 }

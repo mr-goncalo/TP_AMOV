@@ -71,8 +71,8 @@ public class MultiplayerLocalBoardActivity extends Activity {
         spAdapter = new SPAdapter(this, tabuleiroV, jogo);
         tabuleiroV.setAdapter(spAdapter);
 
-       jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA));
-       jogo.setJ2(new MeuJogador(jogo, Constantes.BRANCA));
+       jogo.setJ1(new MeuJogador(jogo, Constantes.PRETA, jogo.getUtilizador1().getNome()));
+       jogo.setJ2(new MeuJogador(jogo, Constantes.BRANCA, jogo.getUtilizador2().getNome()));
 
         jogo.inicio();
     }

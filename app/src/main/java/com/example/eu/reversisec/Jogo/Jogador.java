@@ -17,9 +17,10 @@ public abstract class Jogador {
 
     boolean jogadorAtual = false;
 
-    public Jogador (LogicaJogo jogo, int img){ //confirmado
+    public Jogador (LogicaJogo jogo, int img, String nome){ //confirmado
         this.jogo = jogo;
         this.img = img;
+        this.nome = nome;
         joga2Vezes = true;
         passaTurno = true;
 

@@ -112,11 +112,11 @@ public class MultiplayerLocalSetup extends Activity {
 
         //meter as configs para o jogo e começar a jogar
         if (rb_player1_black.isChecked()) {
-            gameData.setJ1(new MeuJogador(gameData, Constantes.PRETA));
-            gameData.setJ2(new MeuJogador(gameData, Constantes.BRANCA));
+            gameData.setJ1(new MeuJogador(gameData, Constantes.PRETA, gameData.getUtilizador1().getNome()));
+            gameData.setJ2(new MeuJogador(gameData, Constantes.BRANCA, p2Name.getText().toString()));
         } else {
-            gameData.setJ1(new MeuJogador(gameData, Constantes.PRETA));
-            gameData.setJ2(new MeuJogador(gameData, Constantes.BRANCA));
+            gameData.setJ1(new MeuJogador(gameData, Constantes.PRETA, gameData.getUtilizador1().getNome()));
+            gameData.setJ2(new MeuJogador(gameData, Constantes.BRANCA, p2Name.getText().toString()));
 
         }
 

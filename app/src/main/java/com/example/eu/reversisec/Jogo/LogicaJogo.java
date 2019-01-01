@@ -32,6 +32,8 @@ public class LogicaJogo extends Application {
     TextView tvDadosJ1;
     TextView tvDadosJ2;
 
+
+
     public  ArrayList<Historico> historicos;
 
     BaseAdapter adapter;
@@ -146,9 +148,9 @@ public class LogicaJogo extends Application {
         if(jAtual instanceof MaqJogador){
             adapter.notifyDataSetChanged();
 
-            int eval = jogadaInteligente();
-            if(eval >=0) {
-                jAtual.setPos(eval);
+            int posicao = jogadaInteligente();
+            if(posicao >=0) {
+                jAtual.setPos(posicao);
                 jAtual.joga();
             }
 
@@ -156,18 +158,6 @@ public class LogicaJogo extends Application {
             adapter.notifyDataSetChanged();
         }
         joga2Vezes = false;
-    }
-
-    public void fazJogadaAutomatica(){
-        adapter.notifyDataSetChanged();
-
-        int eval = jogadaInteligente();
-        if(eval >=0)
-            jAtual.setPos(eval);
-        jAtual.joga();
-
-        fimDeTurno();
-        adapter.notifyDataSetChanged();
     }
 
     public ArrayList<Historico> getHistoricos() {
@@ -203,8 +193,17 @@ public class LogicaJogo extends Application {
         setBlocosV();
 
         if(!hasPosvalidas()){
+            mudaDeJogador();
+            adapter.notifyDataSetChanged();
+            resetBlocosV();
             fimJogo = true;
-            //falta uma atividade para acabar o jogo
+            Historico historico = new Historico();
+            historico.setPerdedor(getPerdedor());
+            historico.setVencedor(getVencedor());
+            historico.turnosVencedor(turnosVencedor());
+            historico.turnosPerdedor(turnosPerdedor());
+            historicos.add(historico);
+            String msg = "Vencedor: " + getVencedor() + " Perdedor: " +getPerdedor();
         }
     }
 
@@ -399,5 +398,39 @@ public class LogicaJogo extends Application {
 
     public void setPassaTurno(boolean passaTurno) {
         this.passaTurno = passaTurno;
+    }
+
+    public String getPerdedor(){
+        if(pontosJ1 < pontosJ2){
+            return j1.nome;
+        }
+        else
+            return j2.getNome();
+    }
+
+    public String getVencedor(){
+        if(pontosJ1 > pontosJ2){
+            return j1.nome;
+        }
+        else
+            return j2.getNome();
+    }
+
+    public String turnosVencedor(){
+        String msg;
+        if(pontosJ1 > pontosJ2){
+            return msg = "" + turnJ1;
+        }
+        else
+            return msg = "" +turnJ2;
+    }
+
+    public String turnosPerdedor(){
+        String msg;
+        if(pontosJ1 < pontosJ2){
+            return msg = "" + turnJ1;
+        }
+        else
+            return msg = "" +turnJ2;
     }
 }
