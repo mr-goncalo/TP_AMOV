@@ -1,6 +1,8 @@
 package com.example.eu.reversisec.Views;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -18,11 +20,12 @@ import com.example.eu.reversisec.Jogo.Adpters.SPAdapter;
 import com.example.eu.reversisec.Jogo.MaqJogador;
 import com.example.eu.reversisec.Jogo.MeuJogador;
 import com.example.eu.reversisec.Jogo.Utilizador;
+import com.example.eu.reversisec.Jogo.acabaJogo;
 import com.example.eu.reversisec.R;
 
  import java.io.File;
 
-public class activity_modo_singleplayer extends Activity {
+public class activity_modo_singleplayer extends Activity implements acabaJogo {
     LogicaJogo jogo;
     GridView tabuleiroV;
     SPAdapter spAdapter;
@@ -45,6 +48,7 @@ public class activity_modo_singleplayer extends Activity {
         tv1.setText(getResources().getString(R.string.jogador1)+": "+jogo.getUtilizador1().getNome());
         tv2.setText(getResources().getString(R.string.jogador2)+": "+getResources().getString(R.string.pc));
 
+        jogo.setFim(this);
 
 
         jogo.setTvDadosJ1(tv3);
@@ -101,5 +105,17 @@ public class activity_modo_singleplayer extends Activity {
             Toast.makeText(activity_modo_singleplayer.this, "Só disponível a partir do turno 5", Toast.LENGTH_SHORT).show();
         else
             jogo.joga2Vezes();
+    }
+
+    @Override
+    public void fimJogo(String msg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(msg)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        onBackPressed();
+                       jogo.guardaHistorico();
+                    }
+                }).create().show();
     }
 }

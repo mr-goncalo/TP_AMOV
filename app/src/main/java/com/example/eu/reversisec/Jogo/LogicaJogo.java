@@ -1,9 +1,17 @@
 package com.example.eu.reversisec.Jogo;
 
+import android.app.AlertDialog;
 import android.app.Application;
+import android.content.DialogInterface;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +40,17 @@ public class LogicaJogo extends Application {
     TextView tvDadosJ1;
     TextView tvDadosJ2;
 
+    acabaJogo fim;
 
+
+
+    public void setFim(acabaJogo fim) {
+        this.fim = fim;
+    }
+
+    public acabaJogo getFim() {
+        return fim;
+    }
 
     public  ArrayList<Historico> historicos;
 
@@ -45,6 +63,7 @@ public class LogicaJogo extends Application {
         utilizador2 = new Utilizador();
         this.historicos = new ArrayList<>();
         tab = new Tabuleiro();
+        carregaHistorico();
     }
 
     public void resetDadosJogo(){
@@ -72,7 +91,7 @@ public class LogicaJogo extends Application {
         return adapter;
     }
 
-     public void setAdapter(BaseAdapter adapter){
+    public void setAdapter(BaseAdapter adapter){
         this.adapter = adapter;
     }
     public int getGameType() {
@@ -98,7 +117,7 @@ public class LogicaJogo extends Application {
             enimigo = j1.getImg();
 
         if (blocoAtual == null ||blocoAtual.getImagem() == Constantes.FUNDO || blocoAtual.getImagem() == Constantes.VALIDA ||
-            blocoAtual.getImagem()==jAtual.getImg() || bl.getImagem() == enimigo || bl.getImagem() == jAtual.getImg()){
+                blocoAtual.getImagem()==jAtual.getImg() || bl.getImagem() == enimigo || bl.getImagem() == jAtual.getImg()){
             return;
         }
 
@@ -142,18 +161,19 @@ public class LogicaJogo extends Application {
             mudaDeJogador();
         }
 
-        reset();
+        if(reset())
+            return;
 
 
         if(jAtual instanceof MaqJogador){
             adapter.notifyDataSetChanged();
+            //mudaDeJogador();
 
             int posicao = jogadaInteligente();
             if(posicao >=0) {
                 jAtual.setPos(posicao);
                 jAtual.joga();
             }
-
             fimDeTurno();
             adapter.notifyDataSetChanged();
         }
@@ -178,7 +198,7 @@ public class LogicaJogo extends Application {
         }
     }
 
-    public void reset(){
+    public boolean reset(){
         resetBlocosV();
 
         if(jAtual == j1){
@@ -204,7 +224,10 @@ public class LogicaJogo extends Application {
             historico.turnosPerdedor(turnosPerdedor());
             historicos.add(historico);
             String msg = "Vencedor: " + getVencedor() + " Perdedor: " +getPerdedor();
+            fim.fimJogo(msg);
+            return true;
         }
+        return false;
     }
 
     public void atualizaDados(){
@@ -432,5 +455,38 @@ public class LogicaJogo extends Application {
         }
         else
             return msg = "" +turnJ2;
+    }
+
+    public void guardaHistorico() {
+        try {
+            FileOutputStream fos = this.openFileOutput("perfis2.dat", MODE_PRIVATE);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(this.historicos);
+            fos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void carregaHistorico() {
+        historicos = null;
+        try {
+            FileInputStream fis = this.openFileInput("perfis2.dat");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            ArrayList<Historico> lst = (ArrayList<Historico>) ois.readObject();
+            historicos = lst;
+            fis.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (historicos == null)
+            historicos = new ArrayList<>();
     }
 }
